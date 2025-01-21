@@ -231,8 +231,8 @@ github.com/DataDog/datadog-go v3.2.0+incompatible h1:qSG2N4FghB1He/r2mFrWKCaL7dX
 github.com/DataDog/datadog-go v3.2.0+incompatible/go.mod h1:LButxg5PwREeZtORoXG3tL4fMGNddJ+vMq1mwgfaqoQ=
 github.com/DataDog/zstd v1.5.5 h1:oWf5W7GtOLgp6bciQYDmhHHjdhYkALu6S/5Ni9ZgSvQ=
 github.com/DataDog/zstd v1.5.5/go.mod h1:g4AWEaM3yOg3HYfnJ3YIawPnVdXJh9QME85blwSAmyw=
-github.com/EpixZone/epix-sdk v1.0.15 h1:itI3n5//LZqKKtpQMup9BlgOHQVbo/rSObnY8M0s5Q8=
-github.com/EpixZone/epix-sdk v1.0.15/go.mod h1:Zb+DgHtiByNwgj71IlJBXwOq6dLhtyAq3AgqpXm/jHo=
+github.com/EpixZone/epix-sdk v0.50.8-release h1:xH1JoWaq6t1OlhQnsKvFUy/Xyn7GQzqTNfyotJi0oYw=
+github.com/EpixZone/epix-sdk v0.50.8-release/go.mod h1:Zb+DgHtiByNwgj71IlJBXwOq6dLhtyAq3AgqpXm/jHo=
 github.com/EpixZone/etherminter v0.22.0-sdk50-1 h1:VAyQkHmLei8iY/sh1h0aIoyffaB0TbrDEZ7+hjrajoM=
 github.com/EpixZone/etherminter v0.22.0-sdk50-1/go.mod h1:oJHa7P91tmQpDx0rVfEmuSHFBntnsWvMcgjbm11hzaY=
 github.com/Knetic/govaluate v3.0.1-0.20171022003610-9aa49832a739+incompatible/go.mod h1:r7JcOSlj0wfOMncg0iLm8Leh48TZaKVeNIfJntJ2wa0=
