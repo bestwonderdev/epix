@@ -18,7 +18,7 @@
                 {
                     "@type": "/cosmos.auth.v1beta1.ModuleAccount",
                     "base_account": {
-                        "address": "epix1glht96kr2rseywuvhhay894qw7ekuc4qcjj2aw",
+                        "address": "epix1vqu8rska6swzdmnhf90zuv0xmelej4lqcetpnn",
                         "pub_key": null,
                         "account_number": "8",
                         "sequence": "0"
@@ -32,7 +32,7 @@
                 {
                     "@type": "/cosmos.auth.v1beta1.ModuleAccount",
                     "base_account": {
-                        "address": "epix1fl48vsnmsdzcv85q5d2q4z5ajdha8yu38dgldl",
+                        "address": "epix1fl48vsnmsdzcv85q5d2q4z5ajdha8yu3qs867v",
                         "pub_key": null,
                         "account_number": "4",
                         "sequence": "0"
@@ -46,7 +46,7 @@
                 {
                     "@type": "/cosmos.auth.v1beta1.ModuleAccount",
                     "base_account": {
-                        "address": "epix1tygms3xhhs3yv487phx3dw4a95jn7t7lnd5wmt",
+                        "address": "epix1tygms3xhhs3yv487phx3dw4a95jn7t7lrqm5nh",
                         "pub_key": null,
                         "account_number": "5",
                         "sequence": "0"
@@ -60,7 +60,7 @@
                 {
                     "@type": "/cosmos.auth.v1beta1.ModuleAccount",
                     "base_account": {
-                        "address": "epix1d4e35hk3gk4k6t5gh02dcm923z8ck86q5lkhl8",
+                        "address": "epix1d4e35hk3gk4k6t5gh02dcm923z8ck86qnzejv5",
                         "pub_key": null,
                         "account_number": "7",
                         "sequence": "0"
@@ -73,7 +73,7 @@
                 {
                     "@type": "/cosmos.auth.v1beta1.ModuleAccount",
                     "base_account": {
-                        "address": "epix10d07y265gmmuvt4z0w9aw880jnsr700jg5j4zm",
+                        "address": "epix10d07y265gmmuvt4z0w9aw880jnsr700j0fas3g",
                         "pub_key": null,
                         "account_number": "6",
                         "sequence": "0"
@@ -86,9 +86,19 @@
                 {
                     "@type": "/ethermint.types.v1.EthAccount",
                     "base_account": {
-                        "address": "epix1jfdykyt4hhmwhegh669c6exnjtfr3yparej8y8",
+                        "address": "epix1jfdykyt4hhmwhegh669c6exnjtfr3ypayyazh5",
                         "pub_key": null,
-                        "account_number": "1",
+                        "account_number": "11",
+                        "sequence": "0"
+                    },
+                    "code_hash": "0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470"
+                },
+                {
+                    "@type": "/ethermint.types.v1.EthAccount",
+                    "base_account": {
+                        "address": "epix1nhwql7xk6j5p7uaccur8ugv08flg6dn4fku9hw",
+                        "pub_key": null,
+                        "account_number": "12",
                         "sequence": "0"
                     },
                     "code_hash": "0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470"
@@ -96,26 +106,13 @@
                 {
                     "@type": "/cosmos.auth.v1beta1.ModuleAccount",
                     "base_account": {
-                        "address": "epix1jv65s3grqf6v6jl3dp4t6c9t9rk99cd84f9vah",
+                        "address": "epix1jv65s3grqf6v6jl3dp4t6c9t9rk99cd8j52fwy",
                         "pub_key": null,
                         "account_number": "3",
                         "sequence": "0"
                     },
                     "name": "distribution",
                     "permissions": []
-                },
-                {
-                    "@type": "/ethermint.types.v1.EthAccount",
-                    "base_account": {
-                        "address": "epix1nhwql7xk6j5p7uaccur8ugv08flg6dn4wtnqya",
-                        "pub_key": {
-                            "@type": "/ethermint.crypto.v1.ethsecp256k1.PubKey",
-                            "key": "A3mgUmoShx5Qgww0TVtp6fKCeOr1ax2QCculwIZkWBa2"
-                        },
-                        "account_number": "0",
-                        "sequence": "1"
-                    },
-                    "code_hash": "0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470"
                 },
                 {
                     "@type": "/cosmos.auth.v1beta1.ModuleAccount",
@@ -148,13 +145,33 @@
                 {
                     "@type": "/cosmos.auth.v1beta1.ModuleAccount",
                     "base_account": {
-                        "address": "epix17xpfvakm2amg962yls6f84z3kell8c5lz0zsl4",
+                        "address": "epix17xpfvakm2amg962yls6f84z3kell8c5l9jd4vx",
                         "pub_key": null,
                         "account_number": "2",
                         "sequence": "0"
                     },
                     "name": "fee_collector",
                     "permissions": []
+                },
+                {
+                    "@type": "/ethermint.types.v1.EthAccount",
+                    "base_account": {
+                        "address": "epix1925a4b1175bdf6ebe517d68b8d64d392d238903d",
+                        "pub_key": null,
+                        "account_number": "11",
+                        "sequence": "0"
+                    },
+                    "code_hash": "0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470"
+                },
+                {
+                    "@type": "/ethermint.types.v1.EthAccount",
+                    "base_account": {
+                        "address": "epix19ddc0ff8d6d4a81f73b8c7067e218f3a7e8d3675",
+                        "pub_key": null,
+                        "account_number": "12",
+                        "sequence": "0"
+                    },
+                    "code_hash": "0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470"
                 }
             ]
         },
@@ -168,7 +185,7 @@
             },
             "balances": [
                 {
-                    "address": "epix1fl48vsnmsdzcv85q5d2q4z5ajdha8yu38dgldl",
+                    "address": "epix1fl48vsnmsdzcv85q5d2q4z5ajdha8yu3qs867v",
                     "coins": [
                         {
                             "denom": "aepix",
@@ -177,7 +194,7 @@
                     ]
                 },
                 {
-                    "address": "epix1jfdykyt4hhmwhegh669c6exnjtfr3yparej8y8",
+                    "address": "epix1jfdykyt4hhmwhegh669c6exnjtfr3ypayyazh5",
                     "coins": [
                         {
                             "denom": "aepix",
@@ -186,7 +203,7 @@
                     ]
                 },
                 {
-                    "address": "epix1nhwql7xk6j5p7uaccur8ugv08flg6dn4wtnqya",
+                    "address": "epix1nhwql7xk6j5p7uaccur8ugv08flg6dn4fku9hw",
                     "coins": [
                         {
                             "denom": "aepix",
@@ -233,20 +250,7 @@
                 },
                 "tax_rate": "0.000000000000000000",
                 "max_standard_coin_per_pool": "10000000000000000000000",
-                "max_swap_amount": [
-                    {
-                        "denom": "ibc/17CD484EE7D9723B847D95015FA3EBD1572FD13BC84FB838F55B18A57450F25B",
-                        "amount": "10000000"
-                    },
-                    {
-                        "denom": "ibc/4F6A2DEFEA52CD8D90966ADCB2BD0593D3993AB0DF7F6AEB3EFD6167D79237B0",
-                        "amount": "10000000"
-                    },
-                    {
-                        "denom": "ibc/DC186CA7A8C009B43774EBDC825C935CABA9743504CE6037507E6E5CCE12858A",
-                        "amount": "10000000000000000"
-                    }
-                ]
+                "max_swap_amount": []
             },
             "standard_denom": "aepix",
             "pool": [],
@@ -277,16 +281,16 @@
                 "community_pool": []
             },
             "delegator_withdraw_infos": [],
-            "previous_proposer": "epixvalcons1el6h5ahcyq8sxkycnkdtakg0nw8z7hvqgultse",
+            "previous_proposer": "epixvalcons1el6h5ahcyq8sxkycnkdtakg0nw8z7hvq3d8j20",
             "outstanding_rewards": [
                 {
-                    "validator_address": "epixvaloper1nhwql7xk6j5p7uaccur8ugv08flg6dn4v45y4c",
+                    "validator_address": "epixvaloper1nhwql7xk6j5p7uaccur8ugv08flg6dn44yva0w",
                     "outstanding_rewards": []
                 }
             ],
             "validator_accumulated_commissions": [
                 {
-                    "validator_address": "epixvaloper1nhwql7xk6j5p7uaccur8ugv08flg6dn4v45y4c",
+                    "validator_address": "epixvaloper1nhwql7xk6j5p7uaccur8ugv08flg6dn44yva0w",
                     "accumulated": {
                         "commission": []
                     }
@@ -294,7 +298,7 @@
             ],
             "validator_historical_rewards": [
                 {
-                    "validator_address": "epixvaloper1nhwql7xk6j5p7uaccur8ugv08flg6dn4v45y4c",
+                    "validator_address": "epixvaloper1nhwql7xk6j5p7uaccur8ugv08flg6dn44yva0w",
                     "period": "1",
                     "rewards": {
                         "cumulative_reward_ratio": [],
@@ -304,7 +308,7 @@
             ],
             "validator_current_rewards": [
                 {
-                    "validator_address": "epixvaloper1nhwql7xk6j5p7uaccur8ugv08flg6dn4v45y4c",
+                    "validator_address": "epixvaloper1nhwql7xk6j5p7uaccur8ugv08flg6dn44yva0w",
                     "rewards": {
                         "rewards": [],
                         "period": "2"
@@ -313,8 +317,8 @@
             ],
             "delegator_starting_infos": [
                 {
-                    "delegator_address": "epix1nhwql7xk6j5p7uaccur8ugv08flg6dn4wtnqya",
-                    "validator_address": "epixvaloper1nhwql7xk6j5p7uaccur8ugv08flg6dn4v45y4c",
+                    "delegator_address": "epix1nhwql7xk6j5p7uaccur8ugv08flg6dn4fku9hw",
+                    "validator_address": "epixvaloper1nhwql7xk6j5p7uaccur8ugv08flg6dn44yva0w",
                     "starting_info": {
                         "previous_period": "1",
                         "stake": "1000000000000000000000.000000000000000000",
@@ -575,11 +579,11 @@
             },
             "signing_infos": [
                 {
-                    "address": "epixvalcons1el6h5ahcyq8sxkycnkdtakg0nw8z7hvqgultse",
+                    "address": "epixvalcons1el6h5ahcyq8sxkycnkdtakg0nw8z7hvq3d8j20",
                     "validator_signing_info": {
-                        "address": "epixvalcons1el6h5ahcyq8sxkycnkdtakg0nw8z7hvqgultse",
+                        "address": "epixvalcons1el6h5ahcyq8sxkycnkdtakg0nw8z7hvq3d8j20",
                         "start_height": "0",
-                        "index_offset": "2",
+                        "index_offset": "0",
                         "jailed_until": "1970-01-01T00:00:00Z",
                         "tombstoned": false,
                         "missed_blocks_counter": "0"
@@ -588,7 +592,7 @@
             ],
             "missed_blocks": [
                 {
-                    "address": "epixvalcons1el6h5ahcyq8sxkycnkdtakg0nw8z7hvqgultse",
+                    "address": "epixvalcons1el6h5ahcyq8sxkycnkdtakg0nw8z7hvq3d8j20",
                     "missed_blocks": []
                 }
             ]
@@ -605,13 +609,13 @@
             "last_total_power": "1000",
             "last_validator_powers": [
                 {
-                    "address": "epixvaloper1nhwql7xk6j5p7uaccur8ugv08flg6dn4v45y4c",
+                    "address": "epixvaloper1nhwql7xk6j5p7uaccur8ugv08flg6dn44yva0w",
                     "power": "1000"
                 }
             ],
             "validators": [
                 {
-                    "operator_address": "epixvaloper1nhwql7xk6j5p7uaccur8ugv08flg6dn4v45y4c",
+                    "operator_address": "epixvaloper1nhwql7xk6j5p7uaccur8ugv08flg6dn44yva0w",
                     "consensus_pubkey": {
                         "@type": "/cosmos.crypto.ed25519.PubKey",
                         "key": "auKubr/a9EFLBqu8Dpcg3WnUpLZiRUEYkROpQB6miMs="
@@ -644,8 +648,8 @@
             ],
             "delegations": [
                 {
-                    "delegator_address": "epix1nhwql7xk6j5p7uaccur8ugv08flg6dn4wtnqya",
-                    "validator_address": "epixvaloper1nhwql7xk6j5p7uaccur8ugv08flg6dn4v45y4c",
+                    "delegator_address": "epix1nhwql7xk6j5p7uaccur8ugv08flg6dn4fku9hw",
+                    "validator_address": "epixvaloper1nhwql7xk6j5p7uaccur8ugv08flg6dn44yva0w",
                     "shares": "1000000000000000000000.000000000000000000"
                 }
             ],

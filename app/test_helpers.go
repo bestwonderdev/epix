@@ -2,6 +2,7 @@ package app
 
 import (
 	"encoding/json"
+	"fmt"
 	"time"
 
 	"cosmossdk.io/log"
@@ -10,6 +11,9 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
+	distrtypes "github.com/cosmos/cosmos-sdk/x/distribution/types"
+	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types"
+	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 
 	abci "github.com/cometbft/cometbft/abci/types"
 	tmproto "github.com/cometbft/cometbft/proto/tendermint/types"
@@ -17,10 +21,13 @@ import (
 	dbm "github.com/cosmos/cosmos-db"
 	simtestutil "github.com/cosmos/cosmos-sdk/testutil/sims"
 
+	evmtypes "github.com/evmos/ethermint/x/evm/types"
 	feemarkettypes "github.com/evmos/ethermint/x/feemarket/types"
 
 	"github.com/EpixZone/epix/v8/cmd/config"
 	"github.com/EpixZone/epix/v8/types"
+	coinswaptypes "github.com/EpixZone/epix/v8/x/coinswap/types"
+	inflationtypes "github.com/EpixZone/epix/v8/x/inflation/types"
 )
 
 func init() {
@@ -122,4 +129,17 @@ func SetupWithGenesisAccounts(genAccs []authtypes.GenesisAccount, balances ...ba
 	)
 
 	return app
+}
+
+// PrintModuleAddresses prints out the bech32 addresses for all module accounts
+func PrintModuleAddresses() {
+	fmt.Printf("Module Addresses with epix1 prefix:\n")
+	fmt.Printf("bonded_tokens_pool: %s\n", authtypes.NewModuleAddress(stakingtypes.BondedPoolName))
+	fmt.Printf("not_bonded_tokens_pool: %s\n", authtypes.NewModuleAddress(stakingtypes.NotBondedPoolName))
+	fmt.Printf("fee_collector: %s\n", authtypes.NewModuleAddress(authtypes.FeeCollectorName))
+	fmt.Printf("distribution: %s\n", authtypes.NewModuleAddress(distrtypes.ModuleName))
+	fmt.Printf("gov: %s\n", authtypes.NewModuleAddress(govtypes.ModuleName))
+	fmt.Printf("inflation: %s\n", authtypes.NewModuleAddress(inflationtypes.ModuleName))
+	fmt.Printf("erc20: %s\n", authtypes.NewModuleAddress(evmtypes.ModuleName))
+	fmt.Printf("coinswap: %s\n", authtypes.NewModuleAddress(coinswaptypes.ModuleName))
 }
