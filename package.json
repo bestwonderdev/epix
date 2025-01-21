@@ -1,0 +1,26 @@
+{
+  "name": "epix",
+  "version": "1.0.0",
+  "description": "<!-- parent:   order: false -->",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.4.2",
+    "big.js": "^6.2.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EpixZone/epix.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EpixZone/epix/issues"
+  },
+  "homepage": "https://github.com/EpixZone/epix#readme"
+}
