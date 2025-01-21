@@ -1,5 +1,5 @@
 KEY="mykey"
-CHAINID="epix_4243-1"
+CHAINID="epix_1917-1"
 MONIKER="localtestnet"
 KEYRING="test"
 KEYALGO="eth_secp256k1"

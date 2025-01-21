@@ -2,8 +2,8 @@ const fs = require('fs')
 const Big = require('big.js')
 
 const IS_TESTNET = true
-const TESTNET_CHAINID = "epix_4243-1"
-const MAINNET_CHAINID = "epix_4242-1"
+const TESTNET_CHAINID = "epix_1917-1"
+const MAINNET_CHAINID = "epix_1916-1"
 const CSV_FILE_PAHT = "./snapshot/testnet/snapshot.csv"
 const FUNDS_POOL_AMOUNT = 23668256.824195825
 
@@ -23,12 +23,12 @@ const calculateTokenAmount = (amount) => {
     intStr = intStr.replace(/^0+/, '');
 
     let endStr = ''
-    for(let i = 0; i < decimal - floatStr.length; i ++) {
+    for (let i = 0; i < decimal - floatStr.length; i++) {
         endStr += "0"
     }
 
-    if(intStr.length == 0) floatStr = floatStr.replace(/^0+/, '');
-    
+    if (intStr.length == 0) floatStr = floatStr.replace(/^0+/, '');
+
     let resultStr = intStr + floatStr + endStr
     return resultStr
 }
@@ -168,7 +168,7 @@ fi\n\n\n`
         fs.writeFileSync('./init.sh', content, 'utf-8')
     } catch (error) {
         console.log(error)
-    }   
+    }
 
 }
 

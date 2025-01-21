@@ -17,7 +17,7 @@ RPC_PORT="854"
 IP_ADDR="0.0.0.0"
 
 KEY="mykey"
-CHAINID="epix_4243-1"
+CHAINID="epix_1917-1"
 MONIKER="mymoniker"
 
 ## default port prefixes for epixd

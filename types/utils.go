@@ -15,9 +15,9 @@ import (
 
 const (
 	// MainnetChainID defines the epix EIP155 chain ID for mainnet
-	MainnetChainID = "epix_4242"
+	MainnetChainID = "epix_1916"
 	// TestnetChainID defines the epix EIP155 chain ID for testnet
-	TestnetChainID = "epix_4243"
+	TestnetChainID = "epix_1917"
 )
 
 // IsMainnet returns true if the chain-id has the epix mainnet EIP155 chain prefix.

@@ -54,7 +54,7 @@ type SenderAccount struct {
 }
 
 // ChainIDPrefix defines the default chain ID prefix for epix test chains
-var ChainIDPrefixEpix = "epix_4243-"
+var ChainIDPrefixEpix = "epix_1917-"
 
 // TestChain is a testing struct that wraps a simapp with the last TM Header, the current ABCI
 // header and the validators of the TestChain. It also contains a field called ChainID. This
