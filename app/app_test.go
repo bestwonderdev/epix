@@ -56,7 +56,7 @@ func TestEpixExport(t *testing.T) {
 		0,
 		false,
 		simtestutil.NewAppOptionsWithFlagHome(DefaultNodeHome),
-		baseapp.SetChainID(types.MainnetChainID+"-1"),
+		baseapp.SetChainID(types.TestnetChainID+"-1"),
 	)
 
 	genesisState := NewDefaultGenesisState()
@@ -66,7 +66,7 @@ func TestEpixExport(t *testing.T) {
 	// Initialize the chain
 	app.InitChain(
 		&abci.RequestInitChain{
-			ChainId:         types.MainnetChainID + "-1",
+			ChainId:         types.TestnetChainID + "-1",
 			Validators:      []abci.ValidatorUpdate{},
 			ConsensusParams: DefaultConsensusParams,
 			AppStateBytes:   stateBytes,
@@ -88,7 +88,7 @@ func TestEpixExport(t *testing.T) {
 		0,
 		false,
 		simtestutil.NewAppOptionsWithFlagHome(DefaultNodeHome),
-		baseapp.SetChainID(types.MainnetChainID+"-1"),
+		baseapp.SetChainID(types.TestnetChainID+"-1"),
 	)
 	_, err = app2.ExportAppStateAndValidators(false, []string{}, []string{})
 	require.NoError(t, err, "ExportAppStateAndValidators should not have an error")
@@ -105,7 +105,7 @@ func TestWorkingHash(t *testing.T) {
 	tmpDir := fmt.Sprintf("test-%s", time.Now().String())
 	db, err := dbm.NewGoLevelDB("test", tmpDir, nil)
 	require.NoError(t, err)
-	app := NewEpix(log.NewNopLogger(), db, nil, true, map[int64]bool{}, DefaultNodeHome, 0, false, simtestutil.NewAppOptionsWithFlagHome(DefaultNodeHome), baseapp.SetChainID("epix_1917-1"))
+	app := NewEpix(log.NewNopLogger(), db, nil, true, map[int64]bool{}, DefaultNodeHome, 0, false, simtestutil.NewAppOptionsWithFlagHome(DefaultNodeHome), baseapp.SetChainID(types.TestnetChainID+"-1"))
 
 	// delete tmpDir
 	defer require.NoError(t, os.RemoveAll(tmpDir))
