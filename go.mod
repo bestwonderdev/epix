@@ -260,6 +260,4 @@ replace (
 	github.com/syndtr/goleveldb => github.com/syndtr/goleveldb v1.0.1-0.20210819022825-2ae1ddf74ef7
 )
 
-replace github.com/EpixZone/epix/v8 => ./
-
 replace github.com/evmos/ethermint => github.com/EpixZone/etherminter v0.22.0-sdk50-1
