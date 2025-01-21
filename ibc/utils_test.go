@@ -55,7 +55,7 @@ func TestGetTransferSenderRecipient(t *testing.T) {
 				Data: transfertypes.ModuleCdc.MustMarshalJSON(
 					&transfertypes.FungibleTokenPacketData{
 						Sender:   "cosmos1",
-						Receiver: "epix1x2w87cvt5mqjncav4lxy8yfreynn273xrrp06v",
+						Receiver: "epix1x2lktda892nmlpjfrp0l7n6mzhe8mvfuyrrstu",
 						Amount:   "123456",
 					},
 				),
@@ -68,7 +68,7 @@ func TestGetTransferSenderRecipient(t *testing.T) {
 			channeltypes.Packet{
 				Data: transfertypes.ModuleCdc.MustMarshalJSON(
 					&transfertypes.FungibleTokenPacketData{
-						Sender:   "cosmos1qql8ag4cluz6r4dz28p3w00dnc9w8ueulg2gmc",
+						Sender:   "cosmos1x2lktda892nmlpjfrp0l7n6mzhe8mvfu3gd9v8",
 						Receiver: "epix1",
 						Amount:   "123456",
 					},
@@ -82,14 +82,14 @@ func TestGetTransferSenderRecipient(t *testing.T) {
 			channeltypes.Packet{
 				Data: transfertypes.ModuleCdc.MustMarshalJSON(
 					&transfertypes.FungibleTokenPacketData{
-						Sender:   "cosmos1qql8ag4cluz6r4dz28p3w00dnc9w8ueulg2gmc",
-						Receiver: "epix1x2w87cvt5mqjncav4lxy8yfreynn273xrrp06v",
+						Sender:   "cosmos1x2lktda892nmlpjfrp0l7n6mzhe8mvfu3gd9v8",
+						Receiver: "epix1x2lktda892nmlpjfrp0l7n6mzhe8mvfuyrrstu",
 						Amount:   "123456",
 					},
 				),
 			},
-			"epix1qql8ag4cluz6r4dz28p3w00dnc9w8ueud7tc0s",
-			"epix1x2w87cvt5mqjncav4lxy8yfreynn273xrrp06v",
+			"epix1x2lktda892nmlpjfrp0l7n6mzhe8mvfuyrrstu",
+			"epix1x2lktda892nmlpjfrp0l7n6mzhe8mvfuyrrstu",
 			false,
 		},
 		{
@@ -97,14 +97,14 @@ func TestGetTransferSenderRecipient(t *testing.T) {
 			channeltypes.Packet{
 				Data: transfertypes.ModuleCdc.MustMarshalJSON(
 					&transfertypes.FungibleTokenPacketData{
-						Sender:   "epix1x2w87cvt5mqjncav4lxy8yfreynn273xrrp06v",
-						Receiver: "cosmos1qql8ag4cluz6r4dz28p3w00dnc9w8ueulg2gmc",
+						Sender:   "epix1x2lktda892nmlpjfrp0l7n6mzhe8mvfuyrrstu",
+						Receiver: "cosmos1x2lktda892nmlpjfrp0l7n6mzhe8mvfu3gd9v8",
 						Amount:   "123456",
 					},
 				),
 			},
-			"epix1x2w87cvt5mqjncav4lxy8yfreynn273xrrp06v",
-			"epix1qql8ag4cluz6r4dz28p3w00dnc9w8ueud7tc0s",
+			"epix1x2lktda892nmlpjfrp0l7n6mzhe8mvfuyrrstu",
+			"epix1x2lktda892nmlpjfrp0l7n6mzhe8mvfuyrrstu",
 			false,
 		},
 		{
@@ -112,14 +112,14 @@ func TestGetTransferSenderRecipient(t *testing.T) {
 			channeltypes.Packet{
 				Data: transfertypes.ModuleCdc.MustMarshalJSON(
 					&transfertypes.FungibleTokenPacketData{
-						Sender:   "osmo1qql8ag4cluz6r4dz28p3w00dnc9w8ueuhnecd2",
-						Receiver: "epix1x2w87cvt5mqjncav4lxy8yfreynn273xrrp06v",
+						Sender:   "osmo1x2lktda892nmlpjfrp0l7n6mzhe8mvfuen7464",
+						Receiver: "epix1x2lktda892nmlpjfrp0l7n6mzhe8mvfuyrrstu",
 						Amount:   "123456",
 					},
 				),
 			},
-			"epix1qql8ag4cluz6r4dz28p3w00dnc9w8ueud7tc0s",
-			"epix1x2w87cvt5mqjncav4lxy8yfreynn273xrrp06v",
+			"epix1x2lktda892nmlpjfrp0l7n6mzhe8mvfuyrrstu",
+			"epix1x2lktda892nmlpjfrp0l7n6mzhe8mvfuyrrstu",
 			false,
 		},
 	}
@@ -163,8 +163,8 @@ func TestGetTransferAmount(t *testing.T) {
 			channeltypes.Packet{
 				Data: transfertypes.ModuleCdc.MustMarshalJSON(
 					&transfertypes.FungibleTokenPacketData{
-						Sender:   "cosmos1qql8ag4cluz6r4dz28p3w00dnc9w8ueulg2gmc",
-						Receiver: "epix1x2w87cvt5mqjncav4lxy8yfreynn273xrrp06v",
+						Sender:   "cosmos1x2lktda892nmlpjfrp0l7n6mzhe8mvfu3gd9v8",
+						Receiver: "epix1x2lktda892nmlpjfrp0l7n6mzhe8mvfuyrrstu",
 						Amount:   "",
 					},
 				),
@@ -177,8 +177,8 @@ func TestGetTransferAmount(t *testing.T) {
 			channeltypes.Packet{
 				Data: transfertypes.ModuleCdc.MustMarshalJSON(
 					&transfertypes.FungibleTokenPacketData{
-						Sender:   "cosmos1qql8ag4cluz6r4dz28p3w00dnc9w8ueulg2gmc",
-						Receiver: "epix1x2w87cvt5mqjncav4lxy8yfreynn273xrrp06v",
+						Sender:   "cosmos1x2lktda892nmlpjfrp0l7n6mzhe8mvfu3gd9v8",
+						Receiver: "epix1x2lktda892nmlpjfrp0l7n6mzhe8mvfuyrrstu",
 						Amount:   "test",
 					},
 				),
@@ -191,8 +191,8 @@ func TestGetTransferAmount(t *testing.T) {
 			channeltypes.Packet{
 				Data: transfertypes.ModuleCdc.MustMarshalJSON(
 					&transfertypes.FungibleTokenPacketData{
-						Sender:   "cosmos1qql8ag4cluz6r4dz28p3w00dnc9w8ueulg2gmc",
-						Receiver: "epix1x2w87cvt5mqjncav4lxy8yfreynn273xrrp06v",
+						Sender:   "cosmos1x2lktda892nmlpjfrp0l7n6mzhe8mvfu3gd9v8",
+						Receiver: "epix1x2lktda892nmlpjfrp0l7n6mzhe8mvfuyrrstu",
 						Amount:   "10000",
 					},
 				),

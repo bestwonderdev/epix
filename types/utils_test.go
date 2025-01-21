@@ -99,20 +99,20 @@ func TestGetepixAddressFromBech32(t *testing.T) {
 		},
 		{
 			"epix address",
-			"epix1qql8ag4cluz6r4dz28p3w00dnc9w8ueud7tc0s",
-			"epix1qql8ag4cluz6r4dz28p3w00dnc9w8ueud7tc0s",
+			"epix1x2lktda892nmlpjfrp0l7n6mzhe8mvfuyrrstu",
+			"epix1x2lktda892nmlpjfrp0l7n6mzhe8mvfuyrrstu",
 			false,
 		},
 		{
 			"cosmos address",
-			"cosmos1qql8ag4cluz6r4dz28p3w00dnc9w8ueulg2gmc",
-			"epix1qql8ag4cluz6r4dz28p3w00dnc9w8ueud7tc0s",
+			"cosmos1x2lktda892nmlpjfrp0l7n6mzhe8mvfu3gd9v8",
+			"epix1x2lktda892nmlpjfrp0l7n6mzhe8mvfuyrrstu",
 			false,
 		},
 		{
 			"osmosis address",
-			"osmo1qql8ag4cluz6r4dz28p3w00dnc9w8ueuhnecd2",
-			"epix1qql8ag4cluz6r4dz28p3w00dnc9w8ueud7tc0s",
+			"osmo1x2lktda892nmlpjfrp0l7n6mzhe8mvfuen7464",
+			"epix1x2lktda892nmlpjfrp0l7n6mzhe8mvfuyrrstu",
 			false,
 		},
 	}
@@ -126,4 +126,25 @@ func TestGetepixAddressFromBech32(t *testing.T) {
 			require.Equal(t, tc.expAddress, addr.String(), tc.name)
 		}
 	}
+}
+
+// Helper test to generate new addresses
+func TestGenerateAddresses(t *testing.T) {
+	cfg := sdk.GetConfig()
+	cfg.SetBech32PrefixForAccount("epix", "epixpub")
+	cfg.SetBech32PrefixForAccount("cosmos", "cosmospub")
+	cfg.SetBech32PrefixForAccount("osmo", "osmopub")
+
+	// Create a random address
+	privKey := ed25519.GenPrivKey()
+	address := sdk.AccAddress(privKey.PubKey().Address())
+
+	epixAddr := sdk.MustBech32ifyAddressBytes("epix", address)
+	cosmosAddr := sdk.MustBech32ifyAddressBytes("cosmos", address)
+	osmoAddr := sdk.MustBech32ifyAddressBytes("osmo", address)
+
+	t.Logf("Generated addresses for the same key bytes:")
+	t.Logf("epix address: %s", epixAddr)
+	t.Logf("cosmos address: %s", cosmosAddr)
+	t.Logf("osmo address: %s", osmoAddr)
 }
