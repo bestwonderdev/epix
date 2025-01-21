@@ -64,7 +64,8 @@ func (k Keeper) OnRecvPacket(
 
 	// onboarding is not supported for module accounts
 	if _, isModuleAccount := account.(sdk.ModuleAccountI); isModuleAccount {
-		return ack
+		err = errorsmod.Wrapf(types.ErrInvalidType, "onboarding not supported for module accounts")
+		return channeltypes.NewErrorAcknowledgement(err)
 	}
 
 	standardDenom, err := k.coinswapKeeper.GetStandardDenom(ctx)
