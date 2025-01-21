@@ -1,6 +1,7 @@
 package app
 
 import (
+	"fmt"
 	"testing"
 
 	"github.com/ethereum/go-ethereum/common"
@@ -10,6 +11,7 @@ import (
 	"cosmossdk.io/x/tx/signing"
 	"github.com/cosmos/cosmos-sdk/codec/address"
 	sdk "github.com/cosmos/cosmos-sdk/types"
+	"github.com/cosmos/cosmos-sdk/types/bech32"
 
 	coinswapv1 "github.com/EpixZone/epix/v8/api/epix/coinswap/v1"
 	erc20v1 "github.com/EpixZone/epix/v8/api/epix/erc20/v1"
@@ -18,9 +20,25 @@ import (
 )
 
 func TestDefineCustomGetSigners(t *testing.T) {
-	addr := "epix13e9t6s6ra8caz5zzmy5w9v23dm2dr5nrr9sz03"
+	addr := "epix17xpfvakm2amg962yls6f84z3kell8c5l9jd4vx"
+
+	// Debug: Print Bech32 prefix and address details
+	hrp, bz, err := bech32.DecodeAndConvert(addr)
+	require.NoError(t, err)
+	fmt.Printf("Debug - Bech32 details:\n")
+	fmt.Printf("  HRP (prefix): %s\n", hrp)
+	fmt.Printf("  Address bytes: %x\n", bz)
+
+	// Debug: Print SDK config details
+	config := sdk.GetConfig()
+	fmt.Printf("Debug - SDK Config:\n")
+	fmt.Printf("  Expected prefix: %s\n", config.GetBech32AccountAddrPrefix())
+
 	accAddr, err := sdk.AccAddressFromBech32(addr)
 	require.NoError(t, err)
+	fmt.Printf("Debug - Converted address:\n")
+	fmt.Printf("  Bytes: %x\n", accAddr.Bytes())
+	fmt.Printf("  String: %s\n", accAddr.String())
 
 	signingOptions := signing.Options{
 		AddressCodec: address.Bech32Codec{
