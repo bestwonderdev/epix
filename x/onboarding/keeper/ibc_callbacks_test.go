@@ -134,7 +134,7 @@ func (suite *KeeperTestSuite) TestOnRecvPacket() {
 			sdkmath.ZeroInt(),
 		},
 		{
-			"continue - receiver is a module account",
+			"fail - receiver is a module account",
 			func() {
 				distrAcc := suite.app.AccountKeeper.GetModuleAccount(suite.ctx, distrtypes.ModuleName)
 				suite.Require().NotNil(distrAcc)
@@ -143,7 +143,7 @@ func (suite *KeeperTestSuite) TestOnRecvPacket() {
 				bz := transfertypes.ModuleCdc.MustMarshalJSON(&transfer)
 				packet = channeltypes.NewPacket(bz, 100, transfertypes.PortID, sourceChannel, transfertypes.PortID, epixChannel, timeoutHeight, 0)
 			},
-			true,
+			false,
 			sdk.NewCoins(sdk.NewCoin("aepix", sdkmath.ZeroInt())),
 			sdk.NewCoin("aepix", sdkmath.ZeroInt()),
 			sdk.NewCoin(uusdcIbcdenom, transferAmount),
