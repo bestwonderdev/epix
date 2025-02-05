@@ -15,7 +15,8 @@ command -v jq > /dev/null 2>&1 || { echo >&2 "jq not installed. More info: https
 rm -rf ~/.epixd*
 make install
 
-
+# Add Go binary path to PATH
+export PATH=$PATH:$(go env GOPATH)/bin
 
 # Set client config
 epixd config set client chain-id $CHAINID
@@ -72,16 +73,20 @@ if [[ $1 == "pending" ]]; then
 fi
 
 
-epixd add-genesis-account $KEY 23668257824195825000000000aepix --keyring-backend $KEYRING
+epixd add-genesis-account $KEY 11844769000000000000000000aepix --keyring-backend $KEYRING
 
-epixd add-genesis-account epix1cttyg9c0e72wcyg4fulxn5pajafvqerfvzg6ta 250123450000000000000aepix
-epixd add-genesis-account epix1shyv0p05z3dhtjr28w37qkcm54yg5ulnhzdwc4 21031052341866000000000aepix
-epixd add-genesis-account epix1fw4t8peek96a6x6a32v30y22l59ph5wc4hmqmw 12310000000000aepix
+epixd add-genesis-account epix1cttyg9c0e72wcyg4fulxn5pajafvqerfvzg6ta 11844769000000000000000000aepix
+# These smaller accounts are adjusted to maintain the target total supply
+epixd add-genesis-account epix1shyv0p05z3dhtjr28w37qkcm54yg5ulnhzdwc4 0aepix
+epixd add-genesis-account epix1fw4t8peek96a6x6a32v30y22l59ph5wc4hmqmw 0aepix
 
         # Update total supply with claim values
         validators_supply=$(cat $HOME/.epixd/config/genesis.json | jq -r '.app_state["bank"]["supply"][0]["amount"]')
-        total_supply=23689539000000001000000000
+        total_supply=23689538000000000000000000
 cat $HOME/.epixd/config/genesis.json | jq -r --arg total_supply "$total_supply" '.app_state["bank"]["supply"][0]["amount"]=$total_supply' > $HOME/.epixd/config/tmp_genesis.json && mv $HOME/.epixd/config/tmp_genesis.json $HOME/.epixd/config/genesis.json
+
+        # Configure community pool
+        cat $HOME/.epixd/config/genesis.json | jq '.app_state["distribution"]["fee_pool"]["community_pool"] = []' > $HOME/.epixd/config/tmp_genesis.json && mv $HOME/.epixd/config/tmp_genesis.json $HOME/.epixd/config/genesis.json
 
         # Sign genesis transaction
         epixd gentx $KEY 1000000000000000000aepix --keyring-backend $KEYRING --chain-id $CHAINID
@@ -99,4 +104,20 @@ cat $HOME/.epixd/config/genesis.json | jq -r --arg total_supply "$total_supply" 
         # Start the node (remove the --pruning=nothing flag if historical queries are not needed)
         epixd start --pruning=nothing $TRACE --log_level $LOGLEVEL --minimum-gas-prices=0.0001aepix --json-rpc.api eth,txpool,personal,net,debug,web3 --rpc.laddr "tcp://0.0.0.0:26657" --api.enable --chain-id $CHAINID
         epixd tx distribution fund-community-pool 23668256824195825000000000aepix --from $KEY --gas-prices 100aepix  --keyring-backend $KEYRING --chain-id $CHAINID
+        
+# Configure inflation parameters
+cat $HOME/.epixd/config/genesis.json | jq '.app_state["inflation"]["params"]["enable_inflation"]=true' > $HOME/.epixd/config/tmp_genesis.json && mv $HOME/.epixd/config/tmp_genesis.json $HOME/.epixd/config/genesis.json
+
+# Set first year max rewards (2.9M EPIX)
+cat $HOME/.epixd/config/genesis.json | jq '.app_state["inflation"]["params"]["exponential_calculation"]["a"]="2900000.000000000000000000"' > $HOME/.epixd/config/tmp_genesis.json && mv $HOME/.epixd/config/tmp_genesis.json $HOME/.epixd/config/genesis.json
+
+# Set halving rate (15.9% for 4-year halving)
+cat $HOME/.epixd/config/genesis.json | jq '.app_state["inflation"]["params"]["exponential_calculation"]["r"]="0.159000000000000000"' > $HOME/.epixd/config/tmp_genesis.json && mv $HOME/.epixd/config/tmp_genesis.json $HOME/.epixd/config/genesis.json
+
+# Configure reward distribution (90% contributors, 10% validators)
+cat $HOME/.epixd/config/genesis.json | jq '.app_state["inflation"]["params"]["inflation_distribution"]["staking_rewards"]="0.100000000000000000"' > $HOME/.epixd/config/tmp_genesis.json && mv $HOME/.epixd/config/tmp_genesis.json $HOME/.epixd/config/genesis.json
+cat $HOME/.epixd/config/genesis.json | jq '.app_state["inflation"]["params"]["inflation_distribution"]["community_pool"]="0.900000000000000000"' > $HOME/.epixd/config/tmp_genesis.json && mv $HOME/.epixd/config/tmp_genesis.json $HOME/.epixd/config/genesis.json
+
+# Set max supply cap (42M EPIX)
+cat $HOME/.epixd/config/genesis.json | jq '.app_state["inflation"]["params"]["exponential_calculation"]["c"]="42000000.000000000000000000"' > $HOME/.epixd/config/tmp_genesis.json && mv $HOME/.epixd/config/tmp_genesis.json $HOME/.epixd/config/genesis.json
         

@@ -44,17 +44,17 @@ func DefaultParams() Params {
 	return Params{
 		MintDenom: "aepix",
 		ExponentialCalculation: ExponentialCalculation{
-			A:             sdkmath.LegacyNewDec(int64(16_304_348)),
-			R:             sdkmath.LegacyNewDecWithPrec(35, 2), // 35%
-			C:             sdkmath.LegacyZeroDec(),
-			BondingTarget: sdkmath.LegacyNewDecWithPrec(80, 2), // not relevant; max variance is 0
-			MaxVariance:   sdkmath.LegacyZeroDec(),             // 0%
+			A:             sdkmath.LegacyNewDec(2900000),        // 2.9M first year
+			R:             sdkmath.LegacyNewDecWithPrec(159, 3), // ~15.9% for 4-year halving
+			C:             sdkmath.LegacyNewDec(42000000),       // 42M max supply
+			BondingTarget: sdkmath.LegacyNewDecWithPrec(80, 2),  // not relevant; max variance is 0
+			MaxVariance:   sdkmath.LegacyNewDecWithPrec(0, 2),   // 0% variance
 		},
 		InflationDistribution: InflationDistribution{
-			StakingRewards: sdkmath.LegacyNewDecWithPrec(1000000000, 9), // 0.53 = 40% / (1 - 25%)
-			CommunityPool:  sdkmath.LegacyZeroDec(),                     // 0.13 = 10% / (1 - 25%)
+			StakingRewards: sdkmath.LegacyNewDecWithPrec(10, 2), // 10% minimum to stakers
+			CommunityPool:  sdkmath.LegacyNewDecWithPrec(90, 2), // 90% maximum to contributors
 		},
-		EnableInflation: false,
+		EnableInflation: true,
 	}
 }
 

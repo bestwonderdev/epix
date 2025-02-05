@@ -16,13 +16,13 @@ func CalculateEpochMintProvision(
 	x := period                                              // period
 	a := params.ExponentialCalculation.A                     // initial value
 	r := params.ExponentialCalculation.R                     // reduction factor
-	c := params.ExponentialCalculation.C                     // long term inflation
+	c := params.ExponentialCalculation.C                     // long term inflation target
 	bTarget := params.ExponentialCalculation.BondingTarget   // bonding target
 	maxVariance := params.ExponentialCalculation.MaxVariance // max percentage that inflation can be increased by
 
-	// exponentialDecay := a * (1 - r) ^ x + c
+	// exponentialDecay := a * (1 - r) ^ x
 	decay := sdkmath.LegacyOneDec().Sub(r)
-	exponentialDecay := a.Mul(decay.Power(x)).Add(c)
+	exponentialDecay := a.Mul(decay.Power(x))
 
 	// bondingIncentive doesn't increase beyond bonding target (0 < b < bonding_target)
 	if bondedRatio.GTE(bTarget) {
@@ -43,5 +43,12 @@ func CalculateEpochMintProvision(
 	// calculation is based on `epix` and the issued tokens need to be given in
 	// `aepix`
 	epochProvision = epochProvision.Mul(ethermint.PowerReduction.ToLegacyDec())
+
+	// Cap the epoch provision at the long term inflation target divided by epochs per period
+	maxEpochProvision := c.Mul(ethermint.PowerReduction.ToLegacyDec()).Quo(sdkmath.LegacyNewDec(epochsPerPeriod))
+	if epochProvision.GT(maxEpochProvision) {
+		return maxEpochProvision
+	}
+
 	return epochProvision
 }
