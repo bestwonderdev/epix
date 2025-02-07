@@ -1,13 +1,14 @@
 {
   "name": "epix",
   "version": "1.0.0",
-  "description": "<!-- parent:   order: false -->",
+  "description": "Epix Scripts",
   "main": "index.js",
   "directories": {
     "doc": "docs"
   },
   "dependencies": {
     "@openzeppelin/contracts": "^4.4.2",
+    "axios": "^1.7.9",
     "big.js": "^6.2.2"
   },
   "scripts": {
