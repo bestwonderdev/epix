@@ -98,7 +98,7 @@ func TestPrintModuleAddresses(t *testing.T) {
 
 // TestWorkingHash tests that the working hash of the IAVL store is calculated correctly during the initialization phase of the genesis, given the initial height specified in the GenesisDoc.
 func TestWorkingHash(t *testing.T) {
-	gdoc, err := state.MakeGenesisDocFromFile("height4-genesis.json")
+	gdoc, err := state.MakeGenesisDocFromFile("test-genesis.json")
 	require.NoError(t, err)
 
 	gs, err := state.MakeGenesisState(gdoc)
@@ -171,7 +171,7 @@ func TestWorkingHash(t *testing.T) {
 		feemarkettypes.StoreKey:   "b8a66cce8e7809f521db9fdd71bfeb980966f1b74ef252bda65804d8b89da7de",
 		govtypes.StoreKey:         "52de365ff0f0b784cf2c1583fb7f9dc816cb1e630644d481825bf714b9d7ba53",
 		ibctransfertypes.StoreKey: "3ffd548eb86288efc51964649e36dc710f591c3d60d6f9c1b42f2a4d17870904",
-		paramstypes.StoreKey:      "a33b992eee0c979b25f35e4a185b4d091bfa9ad2fd3ce591df10a7be29d123ef",
+		paramstypes.StoreKey:      "b6ab1016e05113fe581360a4f01af87ec1375a00280d23a7e7e63e225af72ce4",
 		slashingtypes.StoreKey:    "be189bc6a79688b8c051044c855fb659b7adc3904c354de89f2688328c22b1f8",
 		upgradetypes.StoreKey:     "9677219870ca98ba9868589ccdcd97411d9b82abc6a7aa1910016457b4730a93",
 	}

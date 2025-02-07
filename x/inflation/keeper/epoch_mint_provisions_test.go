@@ -28,7 +28,8 @@ func (suite *KeeperTestSuite) TestSetGetEpochMintProvision() {
 		},
 	}
 
-	genesisProvision := sdkmath.LegacyMustNewDecFromStr("543478266666666666666667.000000000000000000")
+	// 2.9M per year / 30 epochs = 96,666.67 per epoch
+	genesisProvision := sdkmath.LegacyMustNewDecFromStr("96666666666666666666667")
 
 	for _, tc := range testCases {
 		suite.Run(fmt.Sprintf("Case %s", tc.name), func() {

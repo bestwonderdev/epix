@@ -543,17 +543,17 @@
             "params": {
                 "mint_denom": "aepix",
                 "exponential_calculation": {
-                    "a": "16304348.000000000000000000",
-                    "r": "0.350000000000000000",
-                    "c": "0.000000000000000000",
+                    "a": "2900000.000000000000000000",
+                    "r": "0.159000000000000000",
+                    "c": "42000000.000000000000000000",
                     "bonding_target": "0.800000000000000000",
                     "max_variance": "0.000000000000000000"
                 },
                 "inflation_distribution": {
-                    "staking_rewards": "1.000000000000000000",
-                    "community_pool": "0.000000000000000000"
+                    "staking_rewards": "0.100000000000000000",
+                    "community_pool": "0.900000000000000000"
                 },
-                "enable_inflation": false
+                "enable_inflation": true
             },
             "period": "0",
             "epoch_identifier": "day",

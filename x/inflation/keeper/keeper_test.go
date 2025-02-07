@@ -8,7 +8,6 @@ import (
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 
-	abci "github.com/cometbft/cometbft/abci/types"
 	"github.com/cometbft/cometbft/crypto/tmhash"
 	tmproto "github.com/cometbft/cometbft/proto/tendermint/types"
 	tmversion "github.com/cometbft/cometbft/proto/tendermint/version"
@@ -29,6 +28,8 @@ import (
 	stakingkeeper "github.com/cosmos/cosmos-sdk/x/staking/keeper"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
+
+	abci "github.com/cometbft/cometbft/abci/types"
 )
 
 var denomMint = "aepix"
@@ -101,14 +102,23 @@ func (suite *KeeperTestSuite) DoSetupTest(t require.TestingT) {
 	types.RegisterQueryServer(queryHelper, suite.app.InflationKeeper)
 	suite.queryClient = types.NewQueryClient(queryHelper)
 
+	// Initialize fee market keeper
+	feeMarketParams := suite.app.FeeMarketKeeper.GetParams(suite.ctx)
+	feeMarketParams.EnableHeight = 1
+	feeMarketParams.NoBaseFee = true // Disable base fee calculation
+	suite.app.FeeMarketKeeper.SetParams(suite.ctx, feeMarketParams)
+
+	// Set initial base fee
 	bigInt := &big.Int{}
 	bigInt.SetUint64(100)
-	s.app.FeeMarketKeeper.SetBaseFee(suite.ctx, bigInt)
+	suite.app.FeeMarketKeeper.SetBaseFee(suite.ctx, bigInt)
 
+	// Set EVM params
 	evmParams := suite.app.EvmKeeper.GetParams(suite.ctx)
 	evmParams.EvmDenom = denomMint
 	suite.app.EvmKeeper.SetParams(suite.ctx, evmParams)
 
+	// Set staking params
 	stakingParams, err := suite.app.StakingKeeper.GetParams(suite.ctx)
 	require.NoError(t, err)
 	stakingParams.BondDenom = denomMint
@@ -144,20 +154,43 @@ func (suite *KeeperTestSuite) Commit() {
 	suite.CommitAfter(time.Nanosecond)
 }
 
+// CommitAfter commits a block at a given time.
 func (suite *KeeperTestSuite) CommitAfter(t time.Duration) {
+	// Get current header
 	header := suite.ctx.BlockHeader()
+
+	// Update time
 	header.Time = header.Time.Add(t)
-	suite.app.FinalizeBlock(&abci.RequestFinalizeBlock{
-		Height: header.Height,
+
+	// Begin block with updated time
+	suite.ctx = suite.ctx.WithBlockTime(header.Time)
+	suite.app.BeginBlocker(suite.ctx)
+
+	// End block
+	suite.app.EndBlocker(suite.ctx)
+
+	// Finalize block
+	res, err := suite.app.BaseApp.FinalizeBlock(&abci.RequestFinalizeBlock{
+		Height: suite.ctx.BlockHeight(),
 		Time:   header.Time,
 	})
-	suite.app.Commit()
+	suite.Require().NoError(err)
+	suite.Require().NotNil(res)
 
-	// update ctx
-	header.Height += 1
-	suite.ctx = suite.app.BaseApp.NewUncachedContext(false, header)
+	// Commit block
+	_, err = suite.app.BaseApp.Commit()
+	suite.Require().NoError(err)
 
+	// Update context for next height
+	suite.ctx = suite.ctx.WithBlockHeight(suite.ctx.BlockHeight() + 1)
+
+	// Begin new block
+	suite.app.BeginBlocker(suite.ctx)
+
+	// Update query helpers
 	queryHelper := baseapp.NewQueryServerTestHelper(suite.ctx, suite.app.InterfaceRegistry())
+	types.RegisterQueryServer(queryHelper, suite.app.InflationKeeper)
+	suite.queryClient = types.NewQueryClient(queryHelper)
 	evm.RegisterQueryServer(queryHelper, suite.app.EvmKeeper)
 	suite.queryClientEvm = evm.NewQueryClient(queryHelper)
 }

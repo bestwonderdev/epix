@@ -42,6 +42,14 @@ func (k Keeper) MintCoins(ctx sdk.Context, coin sdk.Coin) error {
 // modules according to allocation proportions:
 //   - staking rewards -> sdk `auth` module fee collector
 //   - community pool -> `sdk `distr` module community pool
+//
+// Design note: The community pool receives the remaining module balance after
+// staking rewards are allocated. This design choice:
+//  1. Ensures all minted tokens are allocated (no dust/leftovers)
+//  2. Makes the system more foolproof - if staking rewards are set to X%,
+//     the remaining (100-X)% automatically goes to community pool
+//  3. Reduces the chance of configuration errors where percentages don't add up to 100%
+//  4. Makes governance proposals simpler (only need to specify staking rewards %)
 func (k Keeper) AllocateExponentialInflation(
 	ctx sdk.Context,
 	mintedCoin sdk.Coin,
@@ -51,7 +59,8 @@ func (k Keeper) AllocateExponentialInflation(
 ) {
 	params := k.GetParams(ctx)
 	proportions := params.InflationDistribution
-	// Allocate staking rewards into fee collector account
+
+	// First, allocate staking rewards into fee collector account
 	staking = sdk.NewCoins(k.GetProportions(ctx, mintedCoin, proportions.StakingRewards))
 	err = k.bankKeeper.SendCoinsFromModuleToModule(
 		ctx,
@@ -63,17 +72,17 @@ func (k Keeper) AllocateExponentialInflation(
 		return nil, nil, err
 	}
 
-	// Allocate community pool amount (remaining module balance) to community
-	// pool address
+	// Get remaining balance in module account
 	moduleAddr := k.accountKeeper.GetModuleAddress(types.ModuleName)
-	communityPool = k.bankKeeper.GetAllBalances(ctx, moduleAddr)
+	remainingBalance := k.bankKeeper.GetBalance(ctx, moduleAddr, mintedCoin.Denom)
+	communityPool = sdk.NewCoins(remainingBalance)
 
+	// Send all remaining balance to community pool
 	err = k.distrKeeper.FundCommunityPool(
 		ctx,
 		communityPool,
-		moduleAddr,
+		k.accountKeeper.GetModuleAddress(types.ModuleName),
 	)
-
 	if err != nil {
 		return nil, nil, err
 	}

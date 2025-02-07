@@ -23,8 +23,8 @@ func (suite *KeeperTestSuite) TestMintAndAllocateInflation() {
 			"pass",
 			sdk.NewCoin(denomMint, sdkmath.NewInt(1_000_000)),
 			func() {},
-			sdk.NewCoin(denomMint, sdkmath.NewInt(1_000_000)),
-			sdk.DecCoins(nil),
+			sdk.NewCoin(denomMint, sdkmath.NewInt(100_000)),                     // 10% to staking rewards
+			sdk.NewDecCoins(sdk.NewDecCoin(denomMint, sdkmath.NewInt(900_000))), // 90% to community pool
 			true,
 		},
 		{
@@ -82,7 +82,7 @@ func (suite *KeeperTestSuite) TestGetCirculatingSupplyAndInflationRate() {
 	}{
 		{
 			"no mint provision",
-			400_000_000,
+			23_689_538,
 			func() {
 				suite.app.InflationKeeper.SetEpochMintProvision(suite.ctx, sdkmath.LegacyZeroDec())
 			},
@@ -90,23 +90,29 @@ func (suite *KeeperTestSuite) TestGetCirculatingSupplyAndInflationRate() {
 		},
 		{
 			"no epochs per period",
-			400_000_000,
+			23_689_538,
 			func() {
 				suite.app.InflationKeeper.SetEpochsPerPeriod(suite.ctx, 0)
 			},
 			sdkmath.LegacyZeroDec(),
 		},
 		{
-			"high supply",
-			800_000_000,
+			"genesis supply",
+			23_689_538,
 			func() {},
-			sdkmath.LegacyMustNewDecFromStr("2.038043500000000000"),
+			sdkmath.LegacyMustNewDecFromStr("12.241690825713865800"), // 12.24% initial inflation rate (2.9M/23.69M)
 		},
 		{
-			"low supply",
-			400_000_000,
+			"year 1 supply",
+			26_589_538, // genesis + 2.9M
 			func() {},
-			sdkmath.LegacyMustNewDecFromStr("4.076087000000000000"),
+			sdkmath.LegacyMustNewDecFromStr("10.906545273558344600"), // 10.91% inflation rate after 1 year
+		},
+		{
+			"year 4 supply (after first halving)",
+			32_389_538, // genesis + ~8.7M (first 4 years)
+			func() {},
+			sdkmath.LegacyMustNewDecFromStr("8.953508382861157200"), // 8.95% inflation rate after halving
 		},
 	}
 	for _, tc := range testCases {

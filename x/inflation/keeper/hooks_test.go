@@ -41,15 +41,15 @@ func (suite *KeeperTestSuite) TestEpochIdentifierAfterEpochEnd() {
 			suite.app.EpochsKeeper.BeforeEpochStart(futureCtx, tc.epochIdentifier, newHeight)
 			suite.app.EpochsKeeper.AfterEpochEnd(futureCtx, tc.epochIdentifier, newHeight)
 
-			suite.app.EpochsKeeper.AfterEpochEnd(futureCtx, tc.epochIdentifier, newHeight)
-
 			// check the distribution happened as well
-			feePoolNew, err := suite.app.DistrKeeper.FeePool.Get(suite.ctx)
+			feePoolNew, err := suite.app.DistrKeeper.FeePool.Get(futureCtx)
 			suite.Require().NoError(err)
 			if tc.expDistribution {
 				// Actual distribution portions are tested elsewhere; we just want to verify the value of the pool is greater here
-				suite.Require().Equal(feePoolNew.CommunityPool.AmountOf(denomMint).BigInt().Uint64(),
-					feePoolOrigin.CommunityPool.AmountOf(denomMint).BigInt().Uint64())
+				suite.Require().Greater(
+					feePoolNew.CommunityPool.AmountOf(denomMint).BigInt().Uint64(),
+					feePoolOrigin.CommunityPool.AmountOf(denomMint).BigInt().Uint64(),
+				)
 			} else {
 				suite.Require().Equal(feePoolNew.CommunityPool.AmountOf(denomMint), feePoolOrigin.CommunityPool.AmountOf(denomMint))
 			}
