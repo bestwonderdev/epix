@@ -9,7 +9,7 @@ const OUTPUT_PATH = __dirname + '/init.sh'
 const IS_TESTNET = true
 const TESTNET_CHAINID = "epix_1917-1"
 const MAINNET_CHAINID = "epix_1916-1"
-const INITIAL_KEY_AMOUNT = new Big("1") // Small amount for gas
+const INITIAL_KEY_AMOUNT = new Big("1.0001") // Just over 1 EPIX - enough for staking (1 EPIX) plus minimal fees
 const COMMUNITY_POOL_AMOUNT = new Big("11844769").minus(INITIAL_KEY_AMOUNT) // Community Pool amount in EPIX, minus key amount
 const CSV_AMOUNT = new Big("11844769") // Amount to be distributed from CSV
 const EXPECTED_SUPPLY = new Big("23689538") // Total supply should be exactly this
@@ -61,7 +61,7 @@ TRACE="${TRACE}"\n\n`
 
         content += `# Install epixd\n`
         content += `rm -rf ~/.epixd*\n`
-        content += `cd ../ && make install\n\n\n\n`
+        content += `make -C $(dirname $(dirname $0)) install\n\n\n\n`
 
         content += `# Verify epixd is installed\n`
         content += `command -v epixd > /dev/null 2>&1 || { echo >&2 "epixd not installed. Please check the installation."; exit 1; }\n\n`
@@ -211,9 +211,62 @@ fi\n\n\n`
         # Set max supply cap (42M EPIX)
         cat $HOME/.epixd/config/genesis.json | jq '.app_state["inflation"]["params"]["exponential_calculation"]["c"]="42000000.000000000000000000"' > $HOME/.epixd/config/tmp_genesis.json && mv $HOME/.epixd/config/tmp_genesis.json $HOME/.epixd/config/genesis.json\n\n`
 
+        // Configure onboarding module
+        content += `\n# Configure onboarding module\n`
+        content += `cat $HOME/.epixd/config/genesis.json | jq '.app_state["onboarding"]["params"]["enable_onboarding"]=true' > $HOME/.epixd/config/tmp_genesis.json && mv $HOME/.epixd/config/tmp_genesis.json $HOME/.epixd/config/genesis.json\n`
+        content += `cat $HOME/.epixd/config/genesis.json | jq '.app_state["onboarding"]["params"]["whitelisted_channels"]=["channel-0"]' > $HOME/.epixd/config/tmp_genesis.json && mv $HOME/.epixd/config/tmp_genesis.json $HOME/.epixd/config/genesis.json\n`
+        content += `cat $HOME/.epixd/config/genesis.json | jq '.app_state["onboarding"]["params"]["auto_swap_threshold"]="10000000000000000"' > $HOME/.epixd/config/tmp_genesis.json && mv $HOME/.epixd/config/tmp_genesis.json $HOME/.epixd/config/genesis.json\n`
+
+        // Configure IBC parameters
+        content += `\n# Configure IBC parameters\n`
+        content += `cat $HOME/.epixd/config/genesis.json | jq '.app_state["ibc"]["connection_genesis"]["params"]["max_expected_time_per_block"]="30000000000"' > $HOME/.epixd/config/tmp_genesis.json && mv $HOME/.epixd/config/tmp_genesis.json $HOME/.epixd/config/genesis.json\n`
+        content += `cat $HOME/.epixd/config/genesis.json | jq '.app_state["transfer"]["params"]["send_enabled"]=true' > $HOME/.epixd/config/tmp_genesis.json && mv $HOME/.epixd/config/tmp_genesis.json $HOME/.epixd/config/genesis.json\n`
+        content += `cat $HOME/.epixd/config/genesis.json | jq '.app_state["transfer"]["params"]["receive_enabled"]=true' > $HOME/.epixd/config/tmp_genesis.json && mv $HOME/.epixd/config/tmp_genesis.json $HOME/.epixd/config/genesis.json\n`
+        // Add port and version configuration for IBC transfers
+        content += `cat $HOME/.epixd/config/genesis.json | jq '.app_state["transfer"]["port_id"]="transfer"' > $HOME/.epixd/config/tmp_genesis.json && mv $HOME/.epixd/config/tmp_genesis.json $HOME/.epixd/config/genesis.json\n`
+
+        // Configure fee market parameters
+        content += `\n# Configure fee market parameters\n`
+        // Set minimum gas price to 0.0000001 EPIX (matching node config)
+        content += `cat $HOME/.epixd/config/genesis.json | jq '.app_state["feemarket"]["params"]["min_gas_price"]="0.0000001"' > $HOME/.epixd/config/tmp_genesis.json && mv $HOME/.epixd/config/tmp_genesis.json $HOME/.epixd/config/genesis.json\n`
+
+        // Configure auth params
+        content += `\n# Configure auth params\n`
+        content += `cat $HOME/.epixd/config/genesis.json | jq '.app_state["auth"]["params"]["max_memo_characters"]="256"' > $HOME/.epixd/config/tmp_genesis.json && mv $HOME/.epixd/config/tmp_genesis.json $HOME/.epixd/config/genesis.json\n`
+        content += `cat $HOME/.epixd/config/genesis.json | jq '.app_state["auth"]["params"]["tx_sig_limit"]="7"' > $HOME/.epixd/config/tmp_genesis.json && mv $HOME/.epixd/config/tmp_genesis.json $HOME/.epixd/config/genesis.json\n`
+        content += `cat $HOME/.epixd/config/genesis.json | jq '.app_state["auth"]["params"]["tx_size_cost_per_byte"]="10"' > $HOME/.epixd/config/tmp_genesis.json && mv $HOME/.epixd/config/tmp_genesis.json $HOME/.epixd/config/genesis.json\n`
+        content += `cat $HOME/.epixd/config/genesis.json | jq '.app_state["auth"]["params"]["sig_verify_cost_ed25519"]="590"' > $HOME/.epixd/config/tmp_genesis.json && mv $HOME/.epixd/config/tmp_genesis.json $HOME/.epixd/config/genesis.json\n`
+        content += `cat $HOME/.epixd/config/genesis.json | jq '.app_state["auth"]["params"]["sig_verify_cost_secp256k1"]="1000"' > $HOME/.epixd/config/tmp_genesis.json && mv $HOME/.epixd/config/tmp_genesis.json $HOME/.epixd/config/genesis.json\n`
+
+        // Base fee for EVM
+        content += `cat $HOME/.epixd/config/genesis.json | jq '.app_state["feemarket"]["params"]["base_fee"]="100000000"' > $HOME/.epixd/config/tmp_genesis.json && mv $HOME/.epixd/config/tmp_genesis.json $HOME/.epixd/config/genesis.json\n`
+        // Enable fee market
+        content += `cat $HOME/.epixd/config/genesis.json | jq '.app_state["feemarket"]["params"]["enable_height"]="0"' > $HOME/.epixd/config/tmp_genesis.json && mv $HOME/.epixd/config/tmp_genesis.json $HOME/.epixd/config/genesis.json\n`
+        // No fee burning (all goes to community pool)
+        content += `cat $HOME/.epixd/config/genesis.json | jq '.app_state["feemarket"]["params"]["no_base_fee"]=false' > $HOME/.epixd/config/tmp_genesis.json && mv $HOME/.epixd/config/tmp_genesis.json $HOME/.epixd/config/genesis.json\n`
+        // Elastic fee market parameters
+        content += `cat $HOME/.epixd/config/genesis.json | jq '.app_state["feemarket"]["params"]["elasticity_multiplier"]="2"' > $HOME/.epixd/config/tmp_genesis.json && mv $HOME/.epixd/config/tmp_genesis.json $HOME/.epixd/config/genesis.json\n`
+
+        // Configure EVM fees
+        content += `\n# Configure EVM fees\n`
+        content += `cat $HOME/.epixd/config/genesis.json | jq '.app_state["evm"]["params"]["evm_denom"]="aepix"' > $HOME/.epixd/config/tmp_genesis.json && mv $HOME/.epixd/config/tmp_genesis.json $HOME/.epixd/config/genesis.json\n`
+        // Set chain config for EVM
+        content += `cat $HOME/.epixd/config/genesis.json | jq '.app_state["evm"]["params"]["chain_config"]["london_block"]="0"' > $HOME/.epixd/config/tmp_genesis.json && mv $HOME/.epixd/config/tmp_genesis.json $HOME/.epixd/config/genesis.json\n`
+        content += `cat $HOME/.epixd/config/genesis.json | jq '.app_state["evm"]["params"]["chain_config"]["arrow_glacier_block"]="0"' > $HOME/.epixd/config/tmp_genesis.json && mv $HOME/.epixd/config/tmp_genesis.json $HOME/.epixd/config/genesis.json\n`
+        content += `cat $HOME/.epixd/config/genesis.json | jq '.app_state["evm"]["params"]["chain_config"]["gray_glacier_block"]="0"' > $HOME/.epixd/config/tmp_genesis.json && mv $HOME/.epixd/config/tmp_genesis.json $HOME/.epixd/config/genesis.json\n`
+        content += `cat $HOME/.epixd/config/genesis.json | jq '.app_state["evm"]["params"]["chain_config"]["merge_netsplit_block"]="0"' > $HOME/.epixd/config/tmp_genesis.json && mv $HOME/.epixd/config/tmp_genesis.json $HOME/.epixd/config/genesis.json\n`
+
+        // Configure IBC parameters
+        content += `\n# Configure IBC parameters\n`
+        content += `cat $HOME/.epixd/config/genesis.json | jq '.app_state["ibc"]["connection_genesis"]["params"]["max_expected_time_per_block"]="30000000000"' > $HOME/.epixd/config/tmp_genesis.json && mv $HOME/.epixd/config/tmp_genesis.json $HOME/.epixd/config/genesis.json\n`
+        content += `cat $HOME/.epixd/config/genesis.json | jq '.app_state["transfer"]["params"]["send_enabled"]=true' > $HOME/.epixd/config/tmp_genesis.json && mv $HOME/.epixd/config/tmp_genesis.json $HOME/.epixd/config/genesis.json\n`
+        content += `cat $HOME/.epixd/config/genesis.json | jq '.app_state["transfer"]["params"]["receive_enabled"]=true' > $HOME/.epixd/config/tmp_genesis.json && mv $HOME/.epixd/config/tmp_genesis.json $HOME/.epixd/config/genesis.json\n`
+        // Add port and version configuration for IBC transfers
+        content += `cat $HOME/.epixd/config/genesis.json | jq '.app_state["transfer"]["port_id"]="transfer"' > $HOME/.epixd/config/tmp_genesis.json && mv $HOME/.epixd/config/tmp_genesis.json $HOME/.epixd/config/genesis.json\n`
+
         content += `
         # Sign genesis transaction
-        epixd gentx $KEY ${1 * 10 ** decimal}aepix --keyring-backend $KEYRING --chain-id $CHAINID
+        epixd gentx $KEY ${1 * 10 ** decimal}aepix --keyring-backend $KEYRING --chain-id $CHAINID --fees 1aepix --gas 200000
         `
 
         content += `
@@ -234,7 +287,7 @@ fi\n\n\n`
 
         content += `
         # Start the node (remove the --pruning=nothing flag if historical queries are not needed)
-        epixd start --pruning=nothing $TRACE --log_level $LOGLEVEL --minimum-gas-prices=0.0001aepix --json-rpc.api eth,txpool,personal,net,debug,web3 --rpc.laddr "tcp://0.0.0.0:26657" --api.enable --chain-id $CHAINID
+        epixd start --pruning=nothing $TRACE --log_level $LOGLEVEL --minimum-gas-prices=0.0000001aepix --json-rpc.api eth,txpool,personal,net,debug,web3 --rpc.laddr "tcp://0.0.0.0:26657" --api.enable --chain-id $CHAINID
         `
 
         fs.writeFileSync(OUTPUT_PATH, content, 'utf-8')
