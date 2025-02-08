@@ -82,6 +82,15 @@ func InitCmd(mbm module.BasicManager, defaultNodeHome string) *cobra.Command {
 			config.P2P.MaxNumInboundPeers = 240
 			config.P2P.MaxNumOutboundPeers = 30
 
+			// Set default consensus parameters for 2-second blocks
+			config.Consensus.TimeoutPropose = 1000 * time.Millisecond
+			config.Consensus.TimeoutProposeDelta = 500 * time.Millisecond
+			config.Consensus.TimeoutPrevote = 500 * time.Millisecond
+			config.Consensus.TimeoutPrevoteDelta = 500 * time.Millisecond
+			config.Consensus.TimeoutPrecommit = 500 * time.Millisecond
+			config.Consensus.TimeoutPrecommitDelta = 500 * time.Millisecond
+			config.Consensus.TimeoutCommit = 2000 * time.Millisecond
+
 			// // Set default seeds
 			// seeds := []string{
 			// 	"40f4fac63da8b1ce8f850b0fa0f79b2699d2ce72@seed.epix.jerrychong.com:26656",                 // jerrychong

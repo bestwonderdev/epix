@@ -211,6 +211,14 @@ fi\n\n\n`
         # Set max supply cap (42M EPIX)
         cat $HOME/.epixd/config/genesis.json | jq '.app_state["inflation"]["params"]["exponential_calculation"]["c"]="42000000.000000000000000000"' > $HOME/.epixd/config/tmp_genesis.json && mv $HOME/.epixd/config/tmp_genesis.json $HOME/.epixd/config/genesis.json\n\n`
 
+        // Configure slashing parameters for 2s blocks
+        content += `\n# Configure slashing parameters\n`
+        content += `cat $HOME/.epixd/config/genesis.json | jq '.app_state["slashing"]["params"]["signed_blocks_window"]="21600"' > $HOME/.epixd/config/tmp_genesis.json && mv $HOME/.epixd/config/tmp_genesis.json $HOME/.epixd/config/genesis.json\n`
+        content += `cat $HOME/.epixd/config/genesis.json | jq '.app_state["slashing"]["params"]["min_signed_per_window"]="0.050000000000000000"' > $HOME/.epixd/config/tmp_genesis.json && mv $HOME/.epixd/config/tmp_genesis.json $HOME/.epixd/config/genesis.json\n`
+        content += `cat $HOME/.epixd/config/genesis.json | jq '.app_state["slashing"]["params"]["downtime_jail_duration"]="60s"' > $HOME/.epixd/config/tmp_genesis.json && mv $HOME/.epixd/config/tmp_genesis.json $HOME/.epixd/config/genesis.json\n`
+        content += `cat $HOME/.epixd/config/genesis.json | jq '.app_state["slashing"]["params"]["slash_fraction_double_sign"]="0.050000000000000000"' > $HOME/.epixd/config/tmp_genesis.json && mv $HOME/.epixd/config/tmp_genesis.json $HOME/.epixd/config/genesis.json\n`
+        content += `cat $HOME/.epixd/config/genesis.json | jq '.app_state["slashing"]["params"]["slash_fraction_downtime"]="0.010000000000000000"' > $HOME/.epixd/config/tmp_genesis.json && mv $HOME/.epixd/config/tmp_genesis.json $HOME/.epixd/config/genesis.json\n\n`
+
         // Configure onboarding module
         content += `\n# Configure onboarding module\n`
         content += `cat $HOME/.epixd/config/genesis.json | jq '.app_state["onboarding"]["params"]["enable_onboarding"]=true' > $HOME/.epixd/config/tmp_genesis.json && mv $HOME/.epixd/config/tmp_genesis.json $HOME/.epixd/config/genesis.json\n`
