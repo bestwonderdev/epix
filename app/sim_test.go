@@ -11,7 +11,7 @@ import (
 	"testing"
 
 	upgradetypes "cosmossdk.io/x/upgrade/types"
-	"github.com/EpixZone/epix/v8/types"
+	"github.com/EpixZone/epix/types"
 	"github.com/spf13/viper"
 	"github.com/stretchr/testify/require"
 
@@ -36,8 +36,8 @@ import (
 	slashingtypes "github.com/cosmos/cosmos-sdk/x/slashing/types"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 
-	epixconfig "github.com/EpixZone/epix/v8/cmd/config"
-	epochstypes "github.com/EpixZone/epix/v8/x/epochs/types"
+	epixconfig "github.com/EpixZone/epix/cmd/config"
+	epochstypes "github.com/EpixZone/epix/x/epochs/types"
 )
 
 var FlagEnableStreamingValue bool

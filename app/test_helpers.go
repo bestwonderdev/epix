@@ -24,10 +24,10 @@ import (
 	evmtypes "github.com/evmos/ethermint/x/evm/types"
 	feemarkettypes "github.com/evmos/ethermint/x/feemarket/types"
 
-	"github.com/EpixZone/epix/v8/cmd/config"
-	"github.com/EpixZone/epix/v8/types"
-	coinswaptypes "github.com/EpixZone/epix/v8/x/coinswap/types"
-	inflationtypes "github.com/EpixZone/epix/v8/x/inflation/types"
+	"github.com/EpixZone/epix/cmd/config"
+	"github.com/EpixZone/epix/types"
+	coinswaptypes "github.com/EpixZone/epix/x/coinswap/types"
+	inflationtypes "github.com/EpixZone/epix/x/inflation/types"
 )
 
 func init() {

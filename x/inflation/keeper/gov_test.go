@@ -11,9 +11,9 @@ import (
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 	"github.com/evmos/ethermint/crypto/ethsecp256k1"
 
-	"github.com/EpixZone/epix/v8/testutil"
-	"github.com/EpixZone/epix/v8/x/inflation/types"
-	inflationtypes "github.com/EpixZone/epix/v8/x/inflation/types"
+	"github.com/EpixZone/epix/testutil"
+	"github.com/EpixZone/epix/x/inflation/types"
+	inflationtypes "github.com/EpixZone/epix/x/inflation/types"
 	distrtypes "github.com/cosmos/cosmos-sdk/x/distribution/types"
 )
 

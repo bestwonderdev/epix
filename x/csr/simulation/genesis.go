@@ -9,7 +9,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/types/module"
 	simtypes "github.com/cosmos/cosmos-sdk/types/simulation"
 
-	"github.com/EpixZone/epix/v8/x/csr/types"
+	"github.com/EpixZone/epix/x/csr/types"
 )
 
 // DONTCOVER

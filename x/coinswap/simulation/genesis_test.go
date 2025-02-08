@@ -14,8 +14,8 @@ import (
 	"github.com/cosmos/cosmos-sdk/types/module"
 	simtypes "github.com/cosmos/cosmos-sdk/types/simulation"
 
-	"github.com/EpixZone/epix/v8/x/coinswap/simulation"
-	"github.com/EpixZone/epix/v8/x/coinswap/types"
+	"github.com/EpixZone/epix/x/coinswap/simulation"
+	"github.com/EpixZone/epix/x/coinswap/types"
 )
 
 func TestRandomizedGenState(t *testing.T) {

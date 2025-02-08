@@ -9,7 +9,7 @@ import (
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types"
 
-	"github.com/EpixZone/epix/v8/x/coinswap/types"
+	"github.com/EpixZone/epix/x/coinswap/types"
 )
 
 type msgServer struct {

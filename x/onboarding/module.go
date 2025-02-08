@@ -19,9 +19,9 @@ import (
 	"github.com/cosmos/cosmos-sdk/types/module"
 	simtypes "github.com/cosmos/cosmos-sdk/types/simulation"
 
-	"github.com/EpixZone/epix/v8/x/onboarding/client/cli"
-	"github.com/EpixZone/epix/v8/x/onboarding/keeper"
-	"github.com/EpixZone/epix/v8/x/onboarding/types"
+	"github.com/EpixZone/epix/x/onboarding/client/cli"
+	"github.com/EpixZone/epix/x/onboarding/keeper"
+	"github.com/EpixZone/epix/x/onboarding/types"
 )
 
 // type check to ensure the interface is properly implemented

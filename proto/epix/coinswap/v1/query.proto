@@ -7,7 +7,7 @@ import "google/api/annotations.proto";
 import "cosmos/base/query/v1beta1/pagination.proto";
 import "epix/coinswap/v1/coinswap.proto";
 
-option go_package = "github.com/EpixZone/epix/v8/x/coinswap/types";
+option go_package = "github.com/EpixZone/epix/x/coinswap/types";
 
 // Query creates service with coinswap as rpc
 service Query {

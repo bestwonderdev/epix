@@ -7,7 +7,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/codec"
 	"github.com/cosmos/cosmos-sdk/types/kv"
 
-	"github.com/EpixZone/epix/v8/x/epochs/types"
+	"github.com/EpixZone/epix/x/epochs/types"
 )
 
 // NewDecodeStore returns a decoder function closure that unmarshals the KVPair's

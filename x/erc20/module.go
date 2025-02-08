@@ -10,7 +10,7 @@ import (
 
 	"cosmossdk.io/core/address"
 	"cosmossdk.io/core/appmodule"
-	"github.com/EpixZone/epix/v8/x/erc20/simulation"
+	"github.com/EpixZone/epix/x/erc20/simulation"
 	abci "github.com/cometbft/cometbft/abci/types"
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/codec"
@@ -20,9 +20,9 @@ import (
 	simtypes "github.com/cosmos/cosmos-sdk/types/simulation"
 	authkeeper "github.com/cosmos/cosmos-sdk/x/auth/keeper"
 
-	"github.com/EpixZone/epix/v8/x/erc20/client/cli"
-	"github.com/EpixZone/epix/v8/x/erc20/keeper"
-	"github.com/EpixZone/epix/v8/x/erc20/types"
+	"github.com/EpixZone/epix/x/erc20/client/cli"
+	"github.com/EpixZone/epix/x/erc20/keeper"
+	"github.com/EpixZone/epix/x/erc20/types"
 )
 
 // type check to ensure the interface is properly implemented
@@ -141,16 +141,6 @@ func (am AppModule) RegisterInvariants(ir sdk.InvariantRegistry) {}
 func (am AppModule) RegisterServices(cfg module.Configurator) {
 	types.RegisterMsgServer(cfg.MsgServer(), am.keeper)
 	types.RegisterQueryServer(cfg.QueryServer(), am.keeper)
-
-	migrator := keeper.NewMigrator(am.keeper)
-
-	// NOTE: the migrations below will only run if the consensus version has changed
-	// since the last release
-
-	// register v1 -> v2 migration
-	if err := cfg.RegisterMigration(types.ModuleName, 1, migrator.Migrate1to2); err != nil {
-		panic(fmt.Errorf("failed to migrate %s to v2: %w", types.ModuleName, err))
-	}
 }
 
 // ProposalMsgs returns msgs used for governance proposals for simulations.

@@ -117,8 +117,8 @@ import (
 	ibctesting "github.com/cosmos/ibc-go/v8/testing"
 	ibctestingtypes "github.com/cosmos/ibc-go/v8/testing/types"
 
-	coinswapv1 "github.com/EpixZone/epix/v8/api/epix/coinswap/v1"
-	erc20v1 "github.com/EpixZone/epix/v8/api/epix/erc20/v1"
+	coinswapv1 "github.com/EpixZone/epix/api/epix/coinswap/v1"
+	erc20v1 "github.com/EpixZone/epix/api/epix/erc20/v1"
 	evmv1 "github.com/evmos/ethermint/api/ethermint/evm/v1"
 	ethante "github.com/evmos/ethermint/app/ante"
 	enccodec "github.com/evmos/ethermint/encoding/codec"
@@ -134,43 +134,35 @@ import (
 	feemarkettypes "github.com/evmos/ethermint/x/feemarket/types"
 
 	// unnamed import of statik for swagger UI support
-	_ "github.com/EpixZone/epix/v8/client/docs/statik"
+	_ "github.com/EpixZone/epix/client/docs/statik"
 
-	"github.com/EpixZone/epix/v8/app/ante"
-	"github.com/EpixZone/epix/v8/x/epochs"
-	epochskeeper "github.com/EpixZone/epix/v8/x/epochs/keeper"
-	epochstypes "github.com/EpixZone/epix/v8/x/epochs/types"
-	"github.com/EpixZone/epix/v8/x/erc20"
-	erc20keeper "github.com/EpixZone/epix/v8/x/erc20/keeper"
-	erc20types "github.com/EpixZone/epix/v8/x/erc20/types"
+	"github.com/EpixZone/epix/app/ante"
+	"github.com/EpixZone/epix/x/epochs"
+	epochskeeper "github.com/EpixZone/epix/x/epochs/keeper"
+	epochstypes "github.com/EpixZone/epix/x/epochs/types"
+	"github.com/EpixZone/epix/x/erc20"
+	erc20keeper "github.com/EpixZone/epix/x/erc20/keeper"
+	erc20types "github.com/EpixZone/epix/x/erc20/types"
 
-	"github.com/EpixZone/epix/v8/x/inflation"
-	inflationkeeper "github.com/EpixZone/epix/v8/x/inflation/keeper"
-	inflationtypes "github.com/EpixZone/epix/v8/x/inflation/types"
-	"github.com/EpixZone/epix/v8/x/onboarding"
-	onboardingkeeper "github.com/EpixZone/epix/v8/x/onboarding/keeper"
-	onboardingtypes "github.com/EpixZone/epix/v8/x/onboarding/types"
+	"github.com/EpixZone/epix/x/inflation"
+	inflationkeeper "github.com/EpixZone/epix/x/inflation/keeper"
+	inflationtypes "github.com/EpixZone/epix/x/inflation/types"
+	"github.com/EpixZone/epix/x/onboarding"
+	onboardingkeeper "github.com/EpixZone/epix/x/onboarding/keeper"
+	onboardingtypes "github.com/EpixZone/epix/x/onboarding/types"
 
 	//govshuttle imports
-	"github.com/EpixZone/epix/v8/x/govshuttle"
-	govshuttlekeeper "github.com/EpixZone/epix/v8/x/govshuttle/keeper"
-	govshuttletypes "github.com/EpixZone/epix/v8/x/govshuttle/types"
+	"github.com/EpixZone/epix/x/govshuttle"
+	govshuttlekeeper "github.com/EpixZone/epix/x/govshuttle/keeper"
+	govshuttletypes "github.com/EpixZone/epix/x/govshuttle/types"
 
-	"github.com/EpixZone/epix/v8/x/csr"
-	csrkeeper "github.com/EpixZone/epix/v8/x/csr/keeper"
-	csrtypes "github.com/EpixZone/epix/v8/x/csr/types"
+	"github.com/EpixZone/epix/x/csr"
+	csrkeeper "github.com/EpixZone/epix/x/csr/keeper"
+	csrtypes "github.com/EpixZone/epix/x/csr/types"
 
-	"github.com/EpixZone/epix/v8/x/coinswap"
-	coinswapkeeper "github.com/EpixZone/epix/v8/x/coinswap/keeper"
-	coinswaptypes "github.com/EpixZone/epix/v8/x/coinswap/types"
-
-	v2 "github.com/EpixZone/epix/v8/app/upgrades/v2"
-	v3 "github.com/EpixZone/epix/v8/app/upgrades/v3"
-	v4 "github.com/EpixZone/epix/v8/app/upgrades/v4"
-	v5 "github.com/EpixZone/epix/v8/app/upgrades/v5"
-	v6 "github.com/EpixZone/epix/v8/app/upgrades/v6"
-	v7 "github.com/EpixZone/epix/v8/app/upgrades/v7"
-	v8 "github.com/EpixZone/epix/v8/app/upgrades/v8"
+	"github.com/EpixZone/epix/x/coinswap"
+	coinswapkeeper "github.com/EpixZone/epix/x/coinswap/keeper"
+	coinswaptypes "github.com/EpixZone/epix/x/coinswap/types"
 )
 
 // Name defines the application binary name
@@ -1325,132 +1317,6 @@ func initParamsKeeper(appCodec codec.BinaryCodec, legacyAmino *codec.LegacyAmino
 }
 
 func (app *Epix) setupUpgradeHandlers() {
-	// v2 upgrade handler
-	app.UpgradeKeeper.SetUpgradeHandler(
-		v2.UpgradeName,
-		v2.CreateUpgradeHandler(app.ModuleManager, app.configurator),
-	)
-
-	// v3 upgrade handler
-	app.UpgradeKeeper.SetUpgradeHandler(
-		v3.UpgradeName,
-		v3.CreateUpgradeHandler(app.ModuleManager, app.configurator),
-	)
-
-	// v4 upgrade handler
-	app.UpgradeKeeper.SetUpgradeHandler(
-		v4.UpgradeName,
-		v4.CreateUpgradeHandler(app.ModuleManager, app.configurator, app.GovshuttleKeeper),
-	)
-
-	// v4 upgrade handler
-	app.UpgradeKeeper.SetUpgradeHandler(
-		v5.UpgradeName,
-		v5.CreateUpgradeHandler(app.ModuleManager, app.configurator),
-	)
-
-	// v6 upgrade handler
-	app.UpgradeKeeper.SetUpgradeHandler(
-		v6.UpgradeName,
-		v6.CreateUpgradeHandler(app.ModuleManager, app.configurator),
-	)
-
-	// v7 upgrade handler
-	app.UpgradeKeeper.SetUpgradeHandler(
-		v7.UpgradeName,
-		v7.CreateUpgradeHandler(app.ModuleManager, app.configurator, *app.OnboardingKeeper, app.CoinswapKeeper),
-	)
-
-	// v8 upgrade handler
-	app.UpgradeKeeper.SetUpgradeHandler(
-		v8.UpgradeName,
-		v8.CreateUpgradeHandler(
-			app.ModuleManager,
-			app.ParamsKeeper.Subspace(baseapp.Paramspace).WithKeyTable(paramstypes.ConsensusParamsKeyTable()),
-			app.ConsensusParamsKeeper.ParamsStore,
-			app.configurator,
-			app.IBCKeeper.ClientKeeper,
-			app.StakingKeeper,
-		),
-	)
-
-	// When a planned update height is reached, the old binary will panic
-	// writing on disk the height and name of the update that triggered it
-	// This will read that value, and execute the preparations for the upgrade.
-	upgradeInfo, err := app.UpgradeKeeper.ReadUpgradeInfoFromDisk()
-	if err != nil {
-		panic(fmt.Errorf("failed to read upgrade info from disk: %w", err))
-	}
-
-	if app.UpgradeKeeper.IsSkipHeight(upgradeInfo.Height) {
-		return
-	}
-
-	var storeUpgrades *storetypes.StoreUpgrades
-
-	switch upgradeInfo.Name {
-	case v2.UpgradeName:
-		// no store upgrades in v2
-	case v3.UpgradeName:
-		// no store upgrades in v3
-	case v4.UpgradeName:
-		// no store upgrades in v4
-		storeUpgrades = &storetypes.StoreUpgrades{
-			Added: []string{govshuttletypes.StoreKey},
-		}
-	case v5.UpgradeName:
-		storeUpgrades = &storetypes.StoreUpgrades{
-			Added: []string{csrtypes.StoreKey},
-		}
-	case v6.UpgradeName:
-		// no store upgrades in v6
-	case v7.UpgradeName:
-		storeUpgrades = &storetypes.StoreUpgrades{
-			Added: []string{onboardingtypes.StoreKey, coinswaptypes.StoreKey},
-		}
-	case v8.UpgradeName:
-		setupLegacyKeyTables(&app.ParamsKeeper)
-		storeUpgrades = &storetypes.StoreUpgrades{
-			Added: []string{crisistypes.StoreKey, consensusparamtypes.StoreKey},
-		}
-	}
-
-	if storeUpgrades != nil {
-		// configure store loader that checks if version == upgradeHeight and applies store upgrades
-		app.SetStoreLoader(upgradetypes.UpgradeStoreLoader(upgradeInfo.Height, storeUpgrades))
-	}
-}
-
-func setupLegacyKeyTables(k *paramskeeper.Keeper) {
-	for _, subspace := range k.GetSubspaces() {
-		subspace := subspace
-
-		var keyTable paramstypes.KeyTable
-		switch subspace.Name() {
-		case authtypes.ModuleName:
-			keyTable = authtypes.ParamKeyTable() //nolint:staticcheck
-		case banktypes.ModuleName:
-			keyTable = banktypes.ParamKeyTable() //nolint:staticcheck
-		case stakingtypes.ModuleName:
-			keyTable = stakingtypes.ParamKeyTable() //nolint:staticcheck
-		case distrtypes.ModuleName:
-			keyTable = distrtypes.ParamKeyTable() //nolint:staticcheck
-		case slashingtypes.ModuleName:
-			keyTable = slashingtypes.ParamKeyTable() //nolint:staticcheck
-		case govtypes.ModuleName:
-			keyTable = govv1.ParamKeyTable() //nolint:staticcheck
-		case crisistypes.ModuleName:
-			keyTable = crisistypes.ParamKeyTable() //nolint:staticcheck
-		case evmtypes.ModuleName:
-			keyTable = evmtypes.ParamKeyTable() //nolint:staticcheck
-		case feemarkettypes.ModuleName:
-			keyTable = feemarkettypes.ParamKeyTable() //nolint:staticcheck
-		default:
-			continue
-		}
-
-		if !subspace.HasKeyTable() {
-			subspace.WithKeyTable(keyTable)
-		}
-	}
+	// Since we're starting fresh at v2, we don't need any upgrade handlers
+	// This function is kept for future upgrades
 }

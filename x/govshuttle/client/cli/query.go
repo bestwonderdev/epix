@@ -10,7 +10,7 @@ import (
 	// "github.com/cosmos/cosmos-sdk/client/flags"
 	// sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/EpixZone/epix/v8/x/govshuttle/types"
+	"github.com/EpixZone/epix/x/govshuttle/types"
 )
 
 // GetQueryCmd returns the cli query commands for this module

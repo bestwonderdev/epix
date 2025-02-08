@@ -1,7 +1,7 @@
 package keeper_test
 
 import (
-	"github.com/EpixZone/epix/v8/x/onboarding/types"
+	"github.com/EpixZone/epix/x/onboarding/types"
 )
 
 func (suite *KeeperTestSuite) TestQueryParams() {

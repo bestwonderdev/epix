@@ -10,9 +10,9 @@ import (
 
 	"github.com/cosmos/cosmos-sdk/types/kv"
 
-	"github.com/EpixZone/epix/v8/x/epochs"
-	"github.com/EpixZone/epix/v8/x/epochs/simulation"
-	"github.com/EpixZone/epix/v8/x/epochs/types"
+	"github.com/EpixZone/epix/x/epochs"
+	"github.com/EpixZone/epix/x/epochs/simulation"
+	"github.com/EpixZone/epix/x/epochs/types"
 )
 
 func TestEpochsStore(t *testing.T) {

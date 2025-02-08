@@ -21,8 +21,8 @@ import (
 	stakingkeeper "github.com/cosmos/cosmos-sdk/x/staking/keeper"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 
-	"github.com/EpixZone/epix/v8/app"
-	"github.com/EpixZone/epix/v8/x/onboarding/types"
+	"github.com/EpixZone/epix/app"
+	"github.com/EpixZone/epix/x/onboarding/types"
 )
 
 type KeeperTestSuite struct {

@@ -2,7 +2,7 @@ package keeper_test
 
 import (
 	sdkmath "cosmossdk.io/math"
-	_ "github.com/EpixZone/epix/v8/x/csr/keeper"
+	_ "github.com/EpixZone/epix/x/csr/keeper"
 )
 
 // params test suite

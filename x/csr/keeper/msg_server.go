@@ -7,7 +7,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types"
 
-	"github.com/EpixZone/epix/v8/x/csr/types"
+	"github.com/EpixZone/epix/x/csr/types"
 )
 
 type msgServer struct {

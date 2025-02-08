@@ -5,13 +5,13 @@ import (
 	"testing"
 	"time"
 
-	"github.com/EpixZone/epix/v8/app/params"
+	"github.com/EpixZone/epix/app/params"
 	"github.com/stretchr/testify/require"
 
 	sdkmath "cosmossdk.io/math"
-	"github.com/EpixZone/epix/v8/app"
-	"github.com/EpixZone/epix/v8/x/govshuttle/simulation"
-	"github.com/EpixZone/epix/v8/x/govshuttle/types"
+	"github.com/EpixZone/epix/app"
+	"github.com/EpixZone/epix/x/govshuttle/simulation"
+	"github.com/EpixZone/epix/x/govshuttle/types"
 
 	cmtproto "github.com/cometbft/cometbft/proto/tendermint/types"
 

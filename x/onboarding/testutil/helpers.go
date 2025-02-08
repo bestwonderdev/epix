@@ -11,7 +11,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	channeltypes "github.com/cosmos/ibc-go/v8/modules/core/04-channel/types"
 
-	ibcgotesting "github.com/EpixZone/epix/v8/ibc/testing"
+	ibcgotesting "github.com/EpixZone/epix/ibc/testing"
 )
 
 // RelayPacket attempts to relay the packet first on EndpointA and then on EndpointB

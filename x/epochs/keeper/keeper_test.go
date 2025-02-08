@@ -27,8 +27,8 @@ import (
 	"github.com/evmos/ethermint/crypto/ethsecp256k1"
 	evm "github.com/evmos/ethermint/x/evm/types"
 
-	"github.com/EpixZone/epix/v8/app"
-	"github.com/EpixZone/epix/v8/x/epochs/types"
+	"github.com/EpixZone/epix/app"
+	"github.com/EpixZone/epix/x/epochs/types"
 )
 
 var denomMint = evm.DefaultEVMDenom

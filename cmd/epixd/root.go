@@ -40,11 +40,11 @@ import (
 	servercfg "github.com/evmos/ethermint/server/config"
 	srvflags "github.com/evmos/ethermint/server/flags"
 
-	"github.com/EpixZone/epix/v8/app"
-	cmdcfg "github.com/EpixZone/epix/v8/cmd/config"
-	epixkr "github.com/EpixZone/epix/v8/crypto/keyring"
+	"github.com/EpixZone/epix/app"
+	cmdcfg "github.com/EpixZone/epix/cmd/config"
+	epixkr "github.com/EpixZone/epix/crypto/keyring"
 
-	"github.com/EpixZone/epix/v8/version"
+	"github.com/EpixZone/epix/version"
 	rosettacmd "github.com/cosmos/rosetta/cmd"
 )
 

@@ -4,7 +4,7 @@ import (
 	sdkmath "cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/EpixZone/epix/v8/x/inflation/types"
+	"github.com/EpixZone/epix/x/inflation/types"
 )
 
 // MintAndAllocateInflation performs inflation minting and allocation

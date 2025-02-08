@@ -3,8 +3,8 @@ package keeper
 import (
 	"fmt"
 
-	epochstypes "github.com/EpixZone/epix/v8/x/epochs/types"
-	"github.com/EpixZone/epix/v8/x/inflation/types"
+	epochstypes "github.com/EpixZone/epix/x/epochs/types"
+	"github.com/EpixZone/epix/x/inflation/types"
 	"github.com/cosmos/cosmos-sdk/telemetry"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/hashicorp/go-metrics"

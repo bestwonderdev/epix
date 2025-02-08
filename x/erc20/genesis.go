@@ -5,8 +5,8 @@ import (
 	authkeeper "github.com/cosmos/cosmos-sdk/x/auth/keeper"
 	"github.com/ethereum/go-ethereum/common"
 
-	"github.com/EpixZone/epix/v8/x/erc20/keeper"
-	"github.com/EpixZone/epix/v8/x/erc20/types"
+	"github.com/EpixZone/epix/x/erc20/keeper"
+	"github.com/EpixZone/epix/x/erc20/types"
 )
 
 // InitGenesis import module genesis

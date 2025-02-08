@@ -3,8 +3,8 @@ package keeper_test
 import (
 	"fmt"
 
-	epochstypes "github.com/EpixZone/epix/v8/x/epochs/types"
-	"github.com/EpixZone/epix/v8/x/inflation/types"
+	epochstypes "github.com/EpixZone/epix/x/epochs/types"
+	"github.com/EpixZone/epix/x/inflation/types"
 )
 
 func (suite *KeeperTestSuite) TestSetGetEpochIdentifier() {

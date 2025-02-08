@@ -7,7 +7,7 @@ import (
 	"github.com/evmos/ethermint/tests"
 	evmtypes "github.com/evmos/ethermint/x/evm/types"
 
-	"github.com/EpixZone/epix/v8/x/erc20/types"
+	"github.com/EpixZone/epix/x/erc20/types"
 )
 
 func (suite *KeeperTestSuite) TestGetTokenPairs() {

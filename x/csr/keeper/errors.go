@@ -4,7 +4,7 @@ package keeper
 
 import (
 	errorsmod "cosmossdk.io/errors"
-	"github.com/EpixZone/epix/v8/x/csr/types"
+	"github.com/EpixZone/epix/x/csr/types"
 )
 
 // x/csr module sentinel errors

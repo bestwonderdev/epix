@@ -53,7 +53,7 @@ import (
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 	"github.com/evmos/ethermint/crypto/hd"
 
-	"github.com/EpixZone/epix/v8/app"
+	"github.com/EpixZone/epix/app"
 
 	"github.com/evmos/ethermint/server/config"
 	ethermint "github.com/evmos/ethermint/types"

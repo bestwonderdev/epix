@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/EpixZone/epix/v8/x/epochs/types"
+	"github.com/EpixZone/epix/x/epochs/types"
 	"github.com/cosmos/cosmos-sdk/types/query"
 )
 

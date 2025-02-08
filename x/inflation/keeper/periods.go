@@ -1,7 +1,7 @@
 package keeper
 
 import (
-	"github.com/EpixZone/epix/v8/x/inflation/types"
+	"github.com/EpixZone/epix/x/inflation/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 )
 

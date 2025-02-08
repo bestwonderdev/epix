@@ -20,10 +20,10 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/module"
 
-	"github.com/EpixZone/epix/v8/x/epochs/client/cli"
-	"github.com/EpixZone/epix/v8/x/epochs/keeper"
-	"github.com/EpixZone/epix/v8/x/epochs/simulation"
-	"github.com/EpixZone/epix/v8/x/epochs/types"
+	"github.com/EpixZone/epix/x/epochs/client/cli"
+	"github.com/EpixZone/epix/x/epochs/keeper"
+	"github.com/EpixZone/epix/x/epochs/simulation"
+	"github.com/EpixZone/epix/x/epochs/types"
 )
 
 var (

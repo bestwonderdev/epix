@@ -17,8 +17,8 @@ import (
 	transfertypes "github.com/cosmos/ibc-go/v8/modules/apps/transfer/types"
 	channeltypes "github.com/cosmos/ibc-go/v8/modules/core/04-channel/types"
 
-	coinswaptypes "github.com/EpixZone/epix/v8/x/coinswap/types"
-	erc20types "github.com/EpixZone/epix/v8/x/erc20/types"
+	coinswaptypes "github.com/EpixZone/epix/x/coinswap/types"
+	erc20types "github.com/EpixZone/epix/x/erc20/types"
 )
 
 type Erc20Keeper interface {

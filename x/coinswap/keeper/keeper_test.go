@@ -22,9 +22,9 @@ import (
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 	"github.com/evmos/ethermint/crypto/ethsecp256k1"
 
-	"github.com/EpixZone/epix/v8/app"
-	"github.com/EpixZone/epix/v8/x/coinswap/keeper"
-	"github.com/EpixZone/epix/v8/x/coinswap/types"
+	"github.com/EpixZone/epix/app"
+	"github.com/EpixZone/epix/x/coinswap/keeper"
+	"github.com/EpixZone/epix/x/coinswap/types"
 )
 
 var (

@@ -5,7 +5,7 @@ import "google/api/annotations.proto";
 import "gogoproto/gogo.proto";
 import "epix/onboarding/v1/genesis.proto";
 
-option go_package = "github.com/EpixZone/epix/v8/x/onboarding/types";
+option go_package = "github.com/EpixZone/epix/x/onboarding/types";
 
 // Query defines the gRPC querier service.
 service Query {

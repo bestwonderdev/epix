@@ -7,8 +7,8 @@ import (
 	svrcmd "github.com/cosmos/cosmos-sdk/server/cmd"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/EpixZone/epix/v8/app"
-	cmdcfg "github.com/EpixZone/epix/v8/cmd/config"
+	"github.com/EpixZone/epix/app"
+	cmdcfg "github.com/EpixZone/epix/cmd/config"
 )
 
 func main() {

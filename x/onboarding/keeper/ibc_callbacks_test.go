@@ -23,14 +23,14 @@ import (
 	ibcgotesting "github.com/cosmos/ibc-go/v8/testing"
 	ibcmock "github.com/cosmos/ibc-go/v8/testing/mock"
 
-	"github.com/EpixZone/epix/v8/contracts"
-	"github.com/EpixZone/epix/v8/testutil"
-	coinswaptypes "github.com/EpixZone/epix/v8/x/coinswap/types"
-	erc20types "github.com/EpixZone/epix/v8/x/erc20/types"
-	inflationtypes "github.com/EpixZone/epix/v8/x/inflation/types"
-	"github.com/EpixZone/epix/v8/x/onboarding/keeper"
-	onboardingtest "github.com/EpixZone/epix/v8/x/onboarding/testutil"
-	"github.com/EpixZone/epix/v8/x/onboarding/types"
+	"github.com/EpixZone/epix/contracts"
+	"github.com/EpixZone/epix/testutil"
+	coinswaptypes "github.com/EpixZone/epix/x/coinswap/types"
+	erc20types "github.com/EpixZone/epix/x/erc20/types"
+	inflationtypes "github.com/EpixZone/epix/x/inflation/types"
+	"github.com/EpixZone/epix/x/onboarding/keeper"
+	onboardingtest "github.com/EpixZone/epix/x/onboarding/testutil"
+	"github.com/EpixZone/epix/x/onboarding/types"
 )
 
 var (

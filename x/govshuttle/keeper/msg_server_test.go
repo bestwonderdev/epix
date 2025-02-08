@@ -20,9 +20,9 @@ import (
 	"github.com/evmos/ethermint/server/config"
 	evmtypes "github.com/evmos/ethermint/x/evm/types"
 
-	"github.com/EpixZone/epix/v8/contracts"
-	"github.com/EpixZone/epix/v8/testutil"
-	govshuttletypes "github.com/EpixZone/epix/v8/x/govshuttle/types"
+	"github.com/EpixZone/epix/contracts"
+	"github.com/EpixZone/epix/testutil"
+	govshuttletypes "github.com/EpixZone/epix/x/govshuttle/types"
 )
 
 type ProposalResult struct {

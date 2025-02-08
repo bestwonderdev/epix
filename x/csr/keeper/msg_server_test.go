@@ -10,8 +10,8 @@ import (
 	govtypesv1 "github.com/cosmos/cosmos-sdk/x/gov/types/v1"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 
-	"github.com/EpixZone/epix/v8/testutil"
-	csrtypes "github.com/EpixZone/epix/v8/x/csr/types"
+	"github.com/EpixZone/epix/testutil"
+	csrtypes "github.com/EpixZone/epix/x/csr/types"
 )
 
 func (suite *KeeperTestSuite) TestMsgExecutionByProposal() {

@@ -13,8 +13,8 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/hashicorp/go-metrics"
 
-	"github.com/EpixZone/epix/v8/contracts"
-	"github.com/EpixZone/epix/v8/x/erc20/types"
+	"github.com/EpixZone/epix/contracts"
+	"github.com/EpixZone/epix/x/erc20/types"
 )
 
 var _ types.MsgServer = &Keeper{}

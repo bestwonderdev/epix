@@ -4,8 +4,8 @@ import (
 	"math"
 
 	sdkmath "cosmossdk.io/math"
-	"github.com/EpixZone/epix/v8/testutil"
-	"github.com/EpixZone/epix/v8/x/coinswap/types"
+	"github.com/EpixZone/epix/testutil"
+	"github.com/EpixZone/epix/x/coinswap/types"
 	"github.com/cometbft/cometbft/crypto/tmhash"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"

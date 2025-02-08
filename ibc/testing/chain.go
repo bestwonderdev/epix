@@ -43,7 +43,7 @@ import (
 	ethermint "github.com/evmos/ethermint/types"
 	evmtypes "github.com/evmos/ethermint/x/evm/types"
 
-	"github.com/EpixZone/epix/v8/ibc/testing/simapp"
+	"github.com/EpixZone/epix/ibc/testing/simapp"
 )
 
 var MaxAccounts = 10

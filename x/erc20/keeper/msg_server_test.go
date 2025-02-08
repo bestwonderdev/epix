@@ -20,10 +20,10 @@ import (
 	evmtypes "github.com/evmos/ethermint/x/evm/types"
 	"github.com/stretchr/testify/mock"
 
-	"github.com/EpixZone/epix/v8/testutil"
-	"github.com/EpixZone/epix/v8/x/erc20/keeper"
-	"github.com/EpixZone/epix/v8/x/erc20/types"
-	inflationtypes "github.com/EpixZone/epix/v8/x/inflation/types"
+	"github.com/EpixZone/epix/testutil"
+	"github.com/EpixZone/epix/x/erc20/keeper"
+	"github.com/EpixZone/epix/x/erc20/types"
+	inflationtypes "github.com/EpixZone/epix/x/inflation/types"
 )
 
 const (

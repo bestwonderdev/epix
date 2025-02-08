@@ -3,7 +3,7 @@ package types_test
 import (
 	"testing"
 
-	"github.com/EpixZone/epix/v8/x/govshuttle/types"
+	"github.com/EpixZone/epix/x/govshuttle/types"
 	"github.com/stretchr/testify/require"
 )
 

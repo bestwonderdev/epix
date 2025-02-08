@@ -7,9 +7,9 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/stretchr/testify/require"
 
-	module "github.com/EpixZone/epix/v8/x/coinswap"
-	"github.com/EpixZone/epix/v8/x/coinswap/simulation"
-	"github.com/EpixZone/epix/v8/x/coinswap/types"
+	module "github.com/EpixZone/epix/x/coinswap"
+	"github.com/EpixZone/epix/x/coinswap/simulation"
+	"github.com/EpixZone/epix/x/coinswap/types"
 	"github.com/cosmos/cosmos-sdk/types/kv"
 	moduletestutil "github.com/cosmos/cosmos-sdk/types/module/testutil"
 )

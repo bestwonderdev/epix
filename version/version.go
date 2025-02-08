@@ -16,7 +16,7 @@ var (
 
 func init() {
 	if len(AppVersion) == 0 {
-		AppVersion = "dev"
+		AppVersion = "v1.0.0-dev"
 	}
 
 	GoVersion = runtime.Version()

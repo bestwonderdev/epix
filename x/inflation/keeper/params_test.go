@@ -1,7 +1,7 @@
 package keeper_test
 
 import (
-	"github.com/EpixZone/epix/v8/x/inflation/types"
+	"github.com/EpixZone/epix/x/inflation/types"
 )
 
 func (suite *KeeperTestSuite) TestParams() {

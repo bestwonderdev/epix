@@ -5,7 +5,7 @@ import (
 
 	"cosmossdk.io/store/prefix"
 	storetypes "cosmossdk.io/store/types"
-	"github.com/EpixZone/epix/v8/x/csr/types"
+	"github.com/EpixZone/epix/x/csr/types"
 	"github.com/cosmos/cosmos-sdk/runtime"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/ethereum/go-ethereum/common"

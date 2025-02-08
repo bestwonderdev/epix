@@ -16,12 +16,12 @@ import (
 	"github.com/cosmos/ibc-go/v8/modules/apps/transfer/types"
 	clienttypes "github.com/cosmos/ibc-go/v8/modules/core/02-client/types"
 
-	"github.com/EpixZone/epix/v8/app"
-	"github.com/EpixZone/epix/v8/contracts"
-	ibctesting "github.com/EpixZone/epix/v8/ibc/testing"
-	coinswaptypes "github.com/EpixZone/epix/v8/x/coinswap/types"
-	inflationtypes "github.com/EpixZone/epix/v8/x/inflation/types"
-	onboardingtest "github.com/EpixZone/epix/v8/x/onboarding/testutil"
+	"github.com/EpixZone/epix/app"
+	"github.com/EpixZone/epix/contracts"
+	ibctesting "github.com/EpixZone/epix/ibc/testing"
+	coinswaptypes "github.com/EpixZone/epix/x/coinswap/types"
+	inflationtypes "github.com/EpixZone/epix/x/inflation/types"
+	onboardingtest "github.com/EpixZone/epix/x/onboarding/testutil"
 )
 
 var (

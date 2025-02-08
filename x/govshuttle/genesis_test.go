@@ -14,8 +14,8 @@ import (
 	simtestutil "github.com/cosmos/cosmos-sdk/testutil/sims"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/EpixZone/epix/v8/app"
-	"github.com/EpixZone/epix/v8/x/govshuttle"
+	"github.com/EpixZone/epix/app"
+	"github.com/EpixZone/epix/x/govshuttle"
 )
 
 type GenesisTestSuite struct {

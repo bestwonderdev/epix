@@ -7,7 +7,7 @@ import (
 
 	"github.com/cosmos/cosmos-sdk/client"
 
-	"github.com/EpixZone/epix/v8/x/inflation/types"
+	"github.com/EpixZone/epix/x/inflation/types"
 )
 
 // GetTxCmd returns the transaction methods allowed for the CLI.

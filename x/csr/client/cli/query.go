@@ -11,7 +11,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/client/flags"
 	"github.com/cosmos/cosmos-sdk/version"
 
-	"github.com/EpixZone/epix/v8/x/csr/types"
+	"github.com/EpixZone/epix/x/csr/types"
 )
 
 // GetQueryCmd returns the cli query commands for the CSR module

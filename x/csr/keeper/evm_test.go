@@ -6,9 +6,9 @@ import (
 	"log"
 	"math/big"
 
-	"github.com/EpixZone/epix/v8/contracts"
-	_ "github.com/EpixZone/epix/v8/x/csr/keeper"
-	"github.com/EpixZone/epix/v8/x/erc20/types"
+	"github.com/EpixZone/epix/contracts"
+	_ "github.com/EpixZone/epix/x/csr/keeper"
+	"github.com/EpixZone/epix/x/erc20/types"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/crypto"
 	evmtypes "github.com/evmos/ethermint/x/evm/types"

@@ -10,9 +10,9 @@ import (
 	. "github.com/onsi/gomega"
 
 	sdkmath "cosmossdk.io/math"
-	"github.com/EpixZone/epix/v8/app"
-	"github.com/EpixZone/epix/v8/contracts"
-	"github.com/EpixZone/epix/v8/x/csr/types"
+	"github.com/EpixZone/epix/app"
+	"github.com/EpixZone/epix/contracts"
+	"github.com/EpixZone/epix/x/csr/types"
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	codectypes "github.com/cosmos/cosmos-sdk/codec/types"
 	cosmosed25519 "github.com/cosmos/cosmos-sdk/crypto/keys/ed25519"

@@ -5,7 +5,7 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/EpixZone/epix/v8/x/coinswap/types"
+	"github.com/EpixZone/epix/x/coinswap/types"
 )
 
 // InitGenesis initializes the coinswap module's state from a given genesis state.

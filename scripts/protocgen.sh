@@ -26,7 +26,7 @@ done
 cd ..
 
 # move proto files to the right places
-cp -r github.com/EpixZone/epix/v8/* ./
+cp -r github.com/EpixZone/epix/* ./
 rm -rf github.com
 
 go mod tidy

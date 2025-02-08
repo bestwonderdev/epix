@@ -4,15 +4,15 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/EpixZone/epix/v8/x/govshuttle"
+	"github.com/EpixZone/epix/x/govshuttle"
 	moduletestutil "github.com/cosmos/cosmos-sdk/types/module/testutil"
 	"github.com/evmos/ethermint/tests"
 	"github.com/stretchr/testify/require"
 
 	"github.com/cosmos/cosmos-sdk/types/kv"
 
-	"github.com/EpixZone/epix/v8/x/govshuttle/simulation"
-	"github.com/EpixZone/epix/v8/x/govshuttle/types"
+	"github.com/EpixZone/epix/x/govshuttle/simulation"
+	"github.com/EpixZone/epix/x/govshuttle/types"
 )
 
 func TestGovShuttleStore(t *testing.T) {

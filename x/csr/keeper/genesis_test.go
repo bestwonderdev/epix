@@ -3,8 +3,8 @@ package keeper_test
 import (
 	"time"
 
-	"github.com/EpixZone/epix/v8/x/csr"
-	"github.com/EpixZone/epix/v8/x/csr/types"
+	"github.com/EpixZone/epix/x/csr"
+	"github.com/EpixZone/epix/x/csr/types"
 	"github.com/evmos/ethermint/tests"
 )
 

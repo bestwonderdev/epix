@@ -8,7 +8,7 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 
 	"cosmossdk.io/log"
-	"github.com/EpixZone/epix/v8/x/govshuttle/types"
+	"github.com/EpixZone/epix/x/govshuttle/types"
 	"github.com/cosmos/cosmos-sdk/codec"
 	"github.com/cosmos/cosmos-sdk/runtime"
 	sdk "github.com/cosmos/cosmos-sdk/types"

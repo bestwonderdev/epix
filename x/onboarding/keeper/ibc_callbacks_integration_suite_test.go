@@ -19,13 +19,13 @@ import (
 	clienttypes "github.com/cosmos/ibc-go/v8/modules/core/02-client/types"
 	channeltypes "github.com/cosmos/ibc-go/v8/modules/core/04-channel/types"
 
-	"github.com/EpixZone/epix/v8/app"
-	ibcgotesting "github.com/EpixZone/epix/v8/ibc/testing"
-	coinswaptypes "github.com/EpixZone/epix/v8/x/coinswap/types"
-	erc20types "github.com/EpixZone/epix/v8/x/erc20/types"
-	inflationtypes "github.com/EpixZone/epix/v8/x/inflation/types"
-	onboardingtest "github.com/EpixZone/epix/v8/x/onboarding/testutil"
-	"github.com/EpixZone/epix/v8/x/onboarding/types"
+	"github.com/EpixZone/epix/app"
+	ibcgotesting "github.com/EpixZone/epix/ibc/testing"
+	coinswaptypes "github.com/EpixZone/epix/x/coinswap/types"
+	erc20types "github.com/EpixZone/epix/x/erc20/types"
+	inflationtypes "github.com/EpixZone/epix/x/inflation/types"
+	onboardingtest "github.com/EpixZone/epix/x/onboarding/testutil"
+	"github.com/EpixZone/epix/x/onboarding/types"
 )
 
 type IBCTestingSuite struct {
@@ -33,12 +33,12 @@ type IBCTestingSuite struct {
 	coordinator *ibcgotesting.Coordinator
 
 	// testing chains used for convenience and readability
-	epixChain      *ibcgotesting.TestChain
+	epixChain       *ibcgotesting.TestChain
 	IBCGravityChain *ibcgotesting.TestChain
 	IBCCosmosChain  *ibcgotesting.TestChain
 
-	pathGravityepix  *ibcgotesting.Path
-	pathCosmosepix   *ibcgotesting.Path
+	pathGravityepix   *ibcgotesting.Path
+	pathCosmosepix    *ibcgotesting.Path
 	pathGravityCosmos *ibcgotesting.Path
 }
 

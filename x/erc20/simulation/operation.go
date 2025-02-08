@@ -5,7 +5,7 @@ import (
 	"math/rand"
 
 	sdkmath "cosmossdk.io/math"
-	"github.com/EpixZone/epix/v8/contracts"
+	"github.com/EpixZone/epix/contracts"
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	"github.com/cosmos/cosmos-sdk/codec"
 	sdk "github.com/cosmos/cosmos-sdk/types"
@@ -15,9 +15,9 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/evmos/ethermint/crypto/ethsecp256k1"
 
-	"github.com/EpixZone/epix/v8/app/params"
-	"github.com/EpixZone/epix/v8/x/erc20/keeper"
-	"github.com/EpixZone/epix/v8/x/erc20/types"
+	"github.com/EpixZone/epix/app/params"
+	"github.com/EpixZone/epix/x/erc20/keeper"
+	"github.com/EpixZone/epix/x/erc20/types"
 )
 
 // Simulation operation weights constants.

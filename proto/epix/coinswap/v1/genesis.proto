@@ -4,7 +4,7 @@ package epix.coinswap.v1;
 import "gogoproto/gogo.proto";
 import "epix/coinswap/v1/coinswap.proto";
 
-option go_package = "github.com/EpixZone/epix/v8/x/coinswap/types";
+option go_package = "github.com/EpixZone/epix/x/coinswap/types";
 
 // GenesisState defines the coinswap module's genesis state
 message GenesisState {

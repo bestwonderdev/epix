@@ -3,8 +3,8 @@ package keeper_test
 import (
 	"strings"
 
-	_ "github.com/EpixZone/epix/v8/x/csr/keeper"
-	"github.com/EpixZone/epix/v8/x/csr/types"
+	_ "github.com/EpixZone/epix/x/csr/keeper"
+	"github.com/EpixZone/epix/x/csr/types"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/evmos/ethermint/tests"
 	"github.com/evmos/ethermint/x/evm/statedb"

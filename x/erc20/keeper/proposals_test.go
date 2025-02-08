@@ -15,9 +15,9 @@ import (
 	"github.com/evmos/ethermint/tests"
 	evmtypes "github.com/evmos/ethermint/x/evm/types"
 
-	"github.com/EpixZone/epix/v8/x/erc20/keeper"
-	"github.com/EpixZone/epix/v8/x/erc20/types"
-	inflationtypes "github.com/EpixZone/epix/v8/x/inflation/types"
+	"github.com/EpixZone/epix/x/erc20/keeper"
+	"github.com/EpixZone/epix/x/erc20/types"
+	inflationtypes "github.com/EpixZone/epix/x/inflation/types"
 )
 
 // The following constants are based on query result of mainnet denoms metadata query.

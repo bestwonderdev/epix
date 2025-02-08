@@ -4,7 +4,7 @@ package epix.csr.v1;
 import "gogoproto/gogo.proto";
 import "cosmos_proto/cosmos.proto";
 
-option go_package = "github.com/EpixZone/epix/v8/x/csr/types";
+option go_package = "github.com/EpixZone/epix/x/csr/types";
 
 // The CSR struct is a wrapper to all of the metadata associated with a given
 // CST NFT

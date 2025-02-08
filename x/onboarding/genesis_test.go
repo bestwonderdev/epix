@@ -18,9 +18,9 @@ import (
 	sdkmath "cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/EpixZone/epix/v8/app"
-	"github.com/EpixZone/epix/v8/x/onboarding"
-	"github.com/EpixZone/epix/v8/x/onboarding/types"
+	"github.com/EpixZone/epix/app"
+	"github.com/EpixZone/epix/x/onboarding"
+	"github.com/EpixZone/epix/x/onboarding/types"
 )
 
 type GenesisTestSuite struct {

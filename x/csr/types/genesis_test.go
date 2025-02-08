@@ -3,7 +3,7 @@ package types_test
 import (
 	"testing"
 
-	"github.com/EpixZone/epix/v8/x/csr/types"
+	"github.com/EpixZone/epix/x/csr/types"
 	"github.com/stretchr/testify/suite"
 )
 

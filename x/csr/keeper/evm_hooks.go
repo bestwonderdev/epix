@@ -7,8 +7,8 @@ import (
 	sdkmath "cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/EpixZone/epix/v8/contracts"
-	"github.com/EpixZone/epix/v8/x/csr/types"
+	"github.com/EpixZone/epix/contracts"
+	"github.com/EpixZone/epix/x/csr/types"
 	"github.com/ethereum/go-ethereum/accounts/abi"
 	"github.com/ethereum/go-ethereum/core"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"

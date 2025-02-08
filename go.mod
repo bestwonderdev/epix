@@ -1,4 +1,4 @@
-module github.com/EpixZone/epix/v8
+module github.com/EpixZone/epix
 
 go 1.22
 
@@ -7,7 +7,6 @@ toolchain go1.22.2
 require (
 	cosmossdk.io/api v0.7.5
 	cosmossdk.io/client/v2 v2.0.0-beta.1.0.20240124105859-5ad1805d0e79
-	cosmossdk.io/collections v0.4.0
 	cosmossdk.io/core v0.12.0
 	cosmossdk.io/errors v1.0.1
 	cosmossdk.io/log v1.3.1
@@ -152,6 +151,7 @@ require (
 )
 
 require (
+	cosmossdk.io/collections v0.4.0 // indirect
 	filippo.io/edwards25519 v1.0.0 // indirect
 	github.com/99designs/keyring v1.2.2 // indirect
 	github.com/DataDog/zstd v1.5.5 // indirect

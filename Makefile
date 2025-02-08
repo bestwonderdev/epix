@@ -92,9 +92,9 @@ ldflags = -X github.com/cosmos/cosmos-sdk/version.Name=epix \
           -X github.com/cosmos/cosmos-sdk/version.Commit=$(COMMIT) \
           -X "github.com/cosmos/cosmos-sdk/version.BuildTags=$(build_tags_comma_sep)" \
           -X github.com/cometbft/cometbft/version.TMCoreSemVer=$(TMVERSION) \
-          -X github.com/EpixZone/epix/v8/version.AppVersion=$(VERSION) \
-          -X github.com/EpixZone/epix/v8/version.GitCommit=$(COMMIT) \
-          -X github.com/EpixZone/epix/v8/version.BuildDate=$(shell date -u +"%Y-%m-%dT%H:%M:%SZ")
+          -X github.com/EpixZone/epix/version.AppVersion=$(VERSION) \
+          -X github.com/EpixZone/epix/version.GitCommit=$(COMMIT) \
+          -X github.com/EpixZone/epix/version.BuildDate=$(shell date -u +"%Y-%m-%dT%H:%M:%SZ")
 
 # DB backend selection
 ifeq (cleveldb,$(findstring cleveldb,$(COSMOS_BUILD_OPTIONS)))

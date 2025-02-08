@@ -20,7 +20,7 @@ import (
 	"github.com/cometbft/cometbft/types"
 	tmtime "github.com/cometbft/cometbft/types/time"
 
-	inflationtypes "github.com/EpixZone/epix/v8/x/inflation/types"
+	inflationtypes "github.com/EpixZone/epix/x/inflation/types"
 	"github.com/cosmos/cosmos-sdk/server/api"
 	servergrpc "github.com/cosmos/cosmos-sdk/server/grpc"
 	servercmtlog "github.com/cosmos/cosmos-sdk/server/log"

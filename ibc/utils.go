@@ -9,7 +9,7 @@ import (
 	transfertypes "github.com/cosmos/ibc-go/v8/modules/apps/transfer/types"
 	channeltypes "github.com/cosmos/ibc-go/v8/modules/core/04-channel/types"
 
-	epix "github.com/EpixZone/epix/v8/types"
+	epix "github.com/EpixZone/epix/types"
 )
 
 // GetTransferSenderRecipient returns the sender and recipient sdk.AccAddresses

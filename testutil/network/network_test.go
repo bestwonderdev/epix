@@ -14,7 +14,7 @@ import (
 	"github.com/evmos/ethermint/server/config"
 	"github.com/evmos/ethermint/testutil/network"
 
-	epixnetwork "github.com/EpixZone/epix/v8/testutil/network"
+	epixnetwork "github.com/EpixZone/epix/testutil/network"
 )
 
 type IntegrationTestSuite struct {

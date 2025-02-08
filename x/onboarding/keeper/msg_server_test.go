@@ -11,8 +11,8 @@ import (
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 	"github.com/evmos/ethermint/crypto/ethsecp256k1"
 
-	"github.com/EpixZone/epix/v8/testutil"
-	onboardingtypes "github.com/EpixZone/epix/v8/x/onboarding/types"
+	"github.com/EpixZone/epix/testutil"
+	onboardingtypes "github.com/EpixZone/epix/x/onboarding/types"
 )
 
 func (suite *KeeperTestSuite) TestMsgExecutionByProposal() {

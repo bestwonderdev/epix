@@ -17,9 +17,9 @@ import (
 	"github.com/evmos/ethermint/encoding"
 	ethermint "github.com/evmos/ethermint/types"
 
-	"github.com/EpixZone/epix/v8/testutil"
-	"github.com/EpixZone/epix/v8/x/erc20"
-	"github.com/EpixZone/epix/v8/x/erc20/types"
+	"github.com/EpixZone/epix/testutil"
+	"github.com/EpixZone/epix/x/erc20"
+	"github.com/EpixZone/epix/x/erc20/types"
 
 	sdkmath "cosmossdk.io/math"
 	authsigning "github.com/cosmos/cosmos-sdk/x/auth/signing"

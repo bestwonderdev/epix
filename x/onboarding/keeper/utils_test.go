@@ -5,8 +5,8 @@ import (
 	"math/big"
 
 	errorsmod "cosmossdk.io/errors"
-	erc20keeper "github.com/EpixZone/epix/v8/x/erc20/keeper"
-	erc20types "github.com/EpixZone/epix/v8/x/erc20/types"
+	erc20keeper "github.com/EpixZone/epix/x/erc20/keeper"
+	erc20types "github.com/EpixZone/epix/x/erc20/types"
 	"github.com/ethereum/go-ethereum/accounts/abi"
 	"github.com/ethereum/go-ethereum/common"
 	evmtypes "github.com/evmos/ethermint/x/evm/types"
@@ -20,7 +20,7 @@ import (
 	transfertypes "github.com/cosmos/ibc-go/v8/modules/apps/transfer/types"
 	clienttypes "github.com/cosmos/ibc-go/v8/modules/core/02-client/types"
 
-	"github.com/EpixZone/epix/v8/x/onboarding/types"
+	"github.com/EpixZone/epix/x/onboarding/types"
 )
 
 var _ types.TransferKeeper = &MockTransferKeeper{}

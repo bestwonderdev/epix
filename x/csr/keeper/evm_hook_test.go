@@ -9,10 +9,10 @@ import (
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 	"github.com/evmos/ethermint/tests"
 
-	"github.com/EpixZone/epix/v8/contracts"
-	csrTypes "github.com/EpixZone/epix/v8/x/csr/types"
+	"github.com/EpixZone/epix/contracts"
+	csrTypes "github.com/EpixZone/epix/x/csr/types"
 
-	"github.com/EpixZone/epix/v8/x/erc20/types"
+	"github.com/EpixZone/epix/x/erc20/types"
 )
 
 // This test suite will run a simulation of sorts where transactions will have

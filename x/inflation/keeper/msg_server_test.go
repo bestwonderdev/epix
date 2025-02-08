@@ -11,8 +11,8 @@ import (
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 	"github.com/evmos/ethermint/crypto/ethsecp256k1"
 
-	"github.com/EpixZone/epix/v8/testutil"
-	inflationtypes "github.com/EpixZone/epix/v8/x/inflation/types"
+	"github.com/EpixZone/epix/testutil"
+	inflationtypes "github.com/EpixZone/epix/x/inflation/types"
 )
 
 func (suite *KeeperTestSuite) TestMsgExecutionByProposal() {

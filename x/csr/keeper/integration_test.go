@@ -8,8 +8,8 @@ import (
 
 	. "github.com/onsi/ginkgo/v2"
 
-	"github.com/EpixZone/epix/v8/contracts"
-	"github.com/EpixZone/epix/v8/testutil"
+	"github.com/EpixZone/epix/contracts"
+	"github.com/EpixZone/epix/testutil"
 	"github.com/ethereum/go-ethereum/common"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 	"github.com/evmos/ethermint/crypto/ethsecp256k1"

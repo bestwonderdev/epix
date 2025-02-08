@@ -6,7 +6,7 @@ import (
 	"time"
 
 	sdkmath "cosmossdk.io/math"
-	"github.com/EpixZone/epix/v8/app/params"
+	"github.com/EpixZone/epix/app/params"
 	abci "github.com/cometbft/cometbft/abci/types"
 	"github.com/stretchr/testify/require"
 
@@ -18,9 +18,9 @@ import (
 
 	cmtproto "github.com/cometbft/cometbft/proto/tendermint/types"
 
-	"github.com/EpixZone/epix/v8/app"
-	"github.com/EpixZone/epix/v8/x/erc20/simulation"
-	"github.com/EpixZone/epix/v8/x/erc20/types"
+	"github.com/EpixZone/epix/app"
+	"github.com/EpixZone/epix/x/erc20/simulation"
+	"github.com/EpixZone/epix/x/erc20/types"
 )
 
 func TestWeightedOperations(t *testing.T) {

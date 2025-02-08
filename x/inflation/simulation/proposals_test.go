@@ -5,8 +5,8 @@ import (
 	"testing"
 
 	sdkmath "cosmossdk.io/math"
-	"github.com/EpixZone/epix/v8/x/inflation/simulation"
-	"github.com/EpixZone/epix/v8/x/inflation/types"
+	"github.com/EpixZone/epix/x/inflation/simulation"
+	"github.com/EpixZone/epix/x/inflation/types"
 	cmtproto "github.com/cometbft/cometbft/proto/tendermint/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/address"

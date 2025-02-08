@@ -46,9 +46,9 @@ import (
 	ethermint "github.com/evmos/ethermint/types"
 	evmtypes "github.com/evmos/ethermint/x/evm/types"
 
-	cmdcfg "github.com/EpixZone/epix/v8/cmd/config"
-	epixkr "github.com/EpixZone/epix/v8/crypto/keyring"
-	"github.com/EpixZone/epix/v8/testutil/network"
+	cmdcfg "github.com/EpixZone/epix/cmd/config"
+	epixkr "github.com/EpixZone/epix/crypto/keyring"
+	"github.com/EpixZone/epix/testutil/network"
 )
 
 var (

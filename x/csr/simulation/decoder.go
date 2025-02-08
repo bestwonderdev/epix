@@ -8,8 +8,8 @@ import (
 	"github.com/cosmos/cosmos-sdk/types/kv"
 	"github.com/ethereum/go-ethereum/common"
 
-	"github.com/EpixZone/epix/v8/x/csr/keeper"
-	"github.com/EpixZone/epix/v8/x/csr/types"
+	"github.com/EpixZone/epix/x/csr/keeper"
+	"github.com/EpixZone/epix/x/csr/types"
 )
 
 // NewDecodeStore returns a decoder function closure that unmarshals the KVPair's

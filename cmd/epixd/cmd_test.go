@@ -9,8 +9,8 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/genutil/client/cli"
 	"github.com/stretchr/testify/require"
 
-	"github.com/EpixZone/epix/v8/app"
-	epixd "github.com/EpixZone/epix/v8/cmd/epixd"
+	"github.com/EpixZone/epix/app"
+	epixd "github.com/EpixZone/epix/cmd/epixd"
 )
 
 func TestInitCmd(t *testing.T) {

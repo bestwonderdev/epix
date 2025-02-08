@@ -38,8 +38,8 @@ import (
 	evmtypes "github.com/evmos/ethermint/x/evm/types"
 	feemarkettypes "github.com/evmos/ethermint/x/feemarket/types"
 
-	"github.com/EpixZone/epix/v8/types"
-	coinswaptypes "github.com/EpixZone/epix/v8/x/coinswap/types"
+	"github.com/EpixZone/epix/types"
+	coinswaptypes "github.com/EpixZone/epix/x/coinswap/types"
 )
 
 func TestEpixExport(t *testing.T) {

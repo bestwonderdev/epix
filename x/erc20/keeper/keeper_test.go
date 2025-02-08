@@ -47,9 +47,9 @@ import (
 	evmtypes "github.com/evmos/ethermint/x/evm/types"
 	feemarkettypes "github.com/evmos/ethermint/x/feemarket/types"
 
-	"github.com/EpixZone/epix/v8/app"
-	"github.com/EpixZone/epix/v8/contracts"
-	"github.com/EpixZone/epix/v8/x/erc20/types"
+	"github.com/EpixZone/epix/app"
+	"github.com/EpixZone/epix/contracts"
+	"github.com/EpixZone/epix/x/erc20/types"
 )
 
 type KeeperTestSuite struct {

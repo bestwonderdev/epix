@@ -22,7 +22,7 @@ import (
 	ethermint "github.com/evmos/ethermint/types"
 	evmtypes "github.com/evmos/ethermint/x/evm/types"
 
-	epixkr "github.com/EpixZone/epix/v8/crypto/keyring"
+	epixkr "github.com/EpixZone/epix/crypto/keyring"
 )
 
 // AddGenesisAccountCmd returns add-genesis-account cobra Command.

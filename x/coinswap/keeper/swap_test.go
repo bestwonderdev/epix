@@ -11,8 +11,8 @@ import (
 	sdkmath "cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/EpixZone/epix/v8/x/coinswap/keeper"
-	"github.com/EpixZone/epix/v8/x/coinswap/types"
+	"github.com/EpixZone/epix/x/coinswap/keeper"
+	"github.com/EpixZone/epix/x/coinswap/types"
 )
 
 func TestSwapSuite(t *testing.T) {

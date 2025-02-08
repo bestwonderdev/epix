@@ -5,8 +5,8 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/EpixZone/epix/v8/x/epochs/keeper"
-	"github.com/EpixZone/epix/v8/x/epochs/types"
+	"github.com/EpixZone/epix/x/epochs/keeper"
+	"github.com/EpixZone/epix/x/epochs/types"
 )
 
 // InitGenesis initializes the epochs module's state from a provided genesis

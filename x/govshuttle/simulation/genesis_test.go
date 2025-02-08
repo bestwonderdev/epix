@@ -13,8 +13,8 @@ import (
 	"github.com/cosmos/cosmos-sdk/types/module"
 	simtypes "github.com/cosmos/cosmos-sdk/types/simulation"
 
-	"github.com/EpixZone/epix/v8/x/govshuttle/simulation"
-	"github.com/EpixZone/epix/v8/x/govshuttle/types"
+	"github.com/EpixZone/epix/x/govshuttle/simulation"
+	"github.com/EpixZone/epix/x/govshuttle/types"
 )
 
 func TestRandomizedGenState(t *testing.T) {

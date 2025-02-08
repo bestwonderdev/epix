@@ -7,7 +7,7 @@ import "cosmos_proto/cosmos.proto";
 import "amino/amino.proto";
 import "epix/govshuttle/v1/govshuttle.proto";
 
-option go_package = "github.com/EpixZone/epix/v8/x/govshuttle/types";
+option go_package = "github.com/EpixZone/epix/x/govshuttle/types";
 
 // Msg defines the Msg service.
 service Msg {

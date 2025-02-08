@@ -5,7 +5,7 @@ import (
 	"strings"
 
 	sdkmath "cosmossdk.io/math"
-	erc20v1 "github.com/EpixZone/epix/v8/api/epix/erc20/v1"
+	erc20v1 "github.com/EpixZone/epix/api/epix/erc20/v1"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	ethermint "github.com/evmos/ethermint/types"
 	protov2 "google.golang.org/protobuf/proto"

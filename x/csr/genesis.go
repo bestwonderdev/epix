@@ -1,8 +1,8 @@
 package csr
 
 import (
-	"github.com/EpixZone/epix/v8/x/csr/keeper"
-	"github.com/EpixZone/epix/v8/x/csr/types"
+	"github.com/EpixZone/epix/x/csr/keeper"
+	"github.com/EpixZone/epix/x/csr/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	authkeeper "github.com/cosmos/cosmos-sdk/x/auth/keeper"
 	"github.com/ethereum/go-ethereum/common"

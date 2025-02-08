@@ -23,7 +23,7 @@ import (
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 	capabilitykeeper "github.com/cosmos/ibc-go/modules/capability/keeper"
 
-	"github.com/EpixZone/epix/v8/ibc/testing/simapp"
+	"github.com/EpixZone/epix/ibc/testing/simapp"
 	"github.com/cosmos/ibc-go/v8/modules/core/keeper"
 	ibctestingtypes "github.com/cosmos/ibc-go/v8/testing/types"
 
@@ -33,7 +33,7 @@ import (
 	tmtypes "github.com/cometbft/cometbft/types"
 	dbm "github.com/cosmos/cosmos-db"
 
-	epixapp "github.com/EpixZone/epix/v8/app"
+	epixapp "github.com/EpixZone/epix/app"
 )
 
 var DefaultTestingAppInit func() (TestingApp, map[string]json.RawMessage) = SetupTestingApp

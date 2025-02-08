@@ -8,7 +8,7 @@ import (
 
 	sdkmath "cosmossdk.io/math"
 
-	"github.com/EpixZone/epix/v8/app/params"
+	"github.com/EpixZone/epix/app/params"
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	"github.com/cosmos/cosmos-sdk/codec"
 	simtestutil "github.com/cosmos/cosmos-sdk/testutil/sims"
@@ -17,8 +17,8 @@ import (
 	simtypes "github.com/cosmos/cosmos-sdk/types/simulation"
 	"github.com/cosmos/cosmos-sdk/x/simulation"
 
-	"github.com/EpixZone/epix/v8/x/coinswap/keeper"
-	"github.com/EpixZone/epix/v8/x/coinswap/types"
+	"github.com/EpixZone/epix/x/coinswap/keeper"
+	"github.com/EpixZone/epix/x/coinswap/types"
 )
 
 // Simulation operation weights constants

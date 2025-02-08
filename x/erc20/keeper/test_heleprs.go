@@ -17,8 +17,8 @@ import (
 	evm "github.com/evmos/ethermint/x/evm/types"
 	feemarkettypes "github.com/evmos/ethermint/x/feemarket/types"
 
-	"github.com/EpixZone/epix/v8/contracts"
-	"github.com/EpixZone/epix/v8/x/erc20/types"
+	"github.com/EpixZone/epix/contracts"
+	"github.com/EpixZone/epix/x/erc20/types"
 )
 
 func DeployContract(ctx sdk.Context,

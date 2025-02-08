@@ -9,7 +9,7 @@ import (
 
 	"github.com/cosmos/cosmos-sdk/x/staking/types"
 
-	ibctesting "github.com/EpixZone/epix/v8/ibc/testing"
+	ibctesting "github.com/EpixZone/epix/ibc/testing"
 )
 
 func TestChangeValSet(t *testing.T) {

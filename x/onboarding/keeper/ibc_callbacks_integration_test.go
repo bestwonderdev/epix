@@ -9,10 +9,10 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/ethereum/go-ethereum/common"
 
-	"github.com/EpixZone/epix/v8/app"
-	"github.com/EpixZone/epix/v8/contracts"
-	"github.com/EpixZone/epix/v8/x/erc20/types"
-	onboardingtest "github.com/EpixZone/epix/v8/x/onboarding/testutil"
+	"github.com/EpixZone/epix/app"
+	"github.com/EpixZone/epix/contracts"
+	"github.com/EpixZone/epix/x/erc20/types"
+	onboardingtest "github.com/EpixZone/epix/x/onboarding/testutil"
 )
 
 var _ = Describe("Onboarding: Performing an IBC Transfer followed by autoswap and convert", Ordered, func() {

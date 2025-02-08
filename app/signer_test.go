@@ -13,10 +13,10 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/bech32"
 
-	coinswapv1 "github.com/EpixZone/epix/v8/api/epix/coinswap/v1"
-	erc20v1 "github.com/EpixZone/epix/v8/api/epix/erc20/v1"
-	coinswaptypes "github.com/EpixZone/epix/v8/x/coinswap/types"
-	erc20types "github.com/EpixZone/epix/v8/x/erc20/types"
+	coinswapv1 "github.com/EpixZone/epix/api/epix/coinswap/v1"
+	erc20v1 "github.com/EpixZone/epix/api/epix/erc20/v1"
+	coinswaptypes "github.com/EpixZone/epix/x/coinswap/types"
+	erc20types "github.com/EpixZone/epix/x/erc20/types"
 )
 
 func TestDefineCustomGetSigners(t *testing.T) {

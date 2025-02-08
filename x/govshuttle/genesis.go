@@ -5,8 +5,8 @@ import (
 	authkeeper "github.com/cosmos/cosmos-sdk/x/auth/keeper"
 	"github.com/ethereum/go-ethereum/common"
 
-	"github.com/EpixZone/epix/v8/x/govshuttle/keeper"
-	"github.com/EpixZone/epix/v8/x/govshuttle/types"
+	"github.com/EpixZone/epix/x/govshuttle/keeper"
+	"github.com/EpixZone/epix/x/govshuttle/types"
 )
 
 // InitGenesis initializes the capability module's state from a provided genesis

@@ -20,10 +20,10 @@ import (
 	authkeeper "github.com/cosmos/cosmos-sdk/x/auth/keeper"
 	stakingkeeper "github.com/cosmos/cosmos-sdk/x/staking/keeper"
 
-	"github.com/EpixZone/epix/v8/x/inflation/client/cli"
-	"github.com/EpixZone/epix/v8/x/inflation/keeper"
-	"github.com/EpixZone/epix/v8/x/inflation/simulation"
-	"github.com/EpixZone/epix/v8/x/inflation/types"
+	"github.com/EpixZone/epix/x/inflation/client/cli"
+	"github.com/EpixZone/epix/x/inflation/keeper"
+	"github.com/EpixZone/epix/x/inflation/simulation"
+	"github.com/EpixZone/epix/x/inflation/types"
 )
 
 // type check to ensure the interface is properly implemented
@@ -149,12 +149,6 @@ func (am AppModule) NewHandler() baseapp.MsgServiceHandler {
 func (am AppModule) RegisterServices(cfg module.Configurator) {
 	types.RegisterMsgServer(cfg.MsgServer(), keeper.NewMsgServerImpl(am.keeper))
 	types.RegisterQueryServer(cfg.QueryServer(), am.keeper)
-
-	migrator := keeper.NewMigrator(am.keeper)
-
-	if err := cfg.RegisterMigration(types.ModuleName, 1, migrator.Migrate1to2); err != nil {
-		panic(fmt.Errorf("FAILURE IN MIGRATION from v1 to v2 %s: %w", types.ModuleName, err))
-	}
 }
 
 // InitGenesis performs genesis initialization for the inflation module. It returns

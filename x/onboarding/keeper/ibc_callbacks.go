@@ -14,10 +14,10 @@ import (
 
 	"github.com/ethereum/go-ethereum/common"
 
-	"github.com/EpixZone/epix/v8/ibc"
-	coinswaptypes "github.com/EpixZone/epix/v8/x/coinswap/types"
-	erc20types "github.com/EpixZone/epix/v8/x/erc20/types"
-	"github.com/EpixZone/epix/v8/x/onboarding/types"
+	"github.com/EpixZone/epix/ibc"
+	coinswaptypes "github.com/EpixZone/epix/x/coinswap/types"
+	erc20types "github.com/EpixZone/epix/x/erc20/types"
+	"github.com/EpixZone/epix/x/onboarding/types"
 )
 
 // OnRecvPacket performs an IBC receive callback.

@@ -8,7 +8,7 @@ import "epix/govshuttle/v1/govshuttle.proto";
 
 // this line is used by starport scaffolding # 1
 
-option go_package = "github.com/EpixZone/epix/v8/x/govshuttle/types";
+option go_package = "github.com/EpixZone/epix/x/govshuttle/types";
 
 // Query defines the gRPC querier service.
 service Query {

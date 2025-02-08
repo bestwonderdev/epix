@@ -6,7 +6,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/types/query"
 	"github.com/evmos/ethermint/tests"
 
-	"github.com/EpixZone/epix/v8/x/erc20/types"
+	"github.com/EpixZone/epix/x/erc20/types"
 )
 
 func (suite *KeeperTestSuite) TestTokenPairs() {

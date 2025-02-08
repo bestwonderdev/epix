@@ -2,8 +2,8 @@ package govshuttle
 
 import (
 	//"github.com/EpixZone/epix/v2/testutil/sample"
-	govshuttlesimulation "github.com/EpixZone/epix/v8/x/govshuttle/simulation"
-	"github.com/EpixZone/epix/v8/x/govshuttle/types"
+	govshuttlesimulation "github.com/EpixZone/epix/x/govshuttle/simulation"
+	"github.com/EpixZone/epix/x/govshuttle/types"
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	simtestutil "github.com/cosmos/cosmos-sdk/testutil/sims"
 	"github.com/cosmos/cosmos-sdk/types/module"
