@@ -119,7 +119,6 @@ func (suite *InflationTestSuite) TestCalculateEpochMintProvision() {
 				epochsPerPeriod,
 				tc.bondedRatio,
 			)
-
 			suite.Require().Equal(tc.expEpochProvision, epochMintProvisions)
 		})
 	}

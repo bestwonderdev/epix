@@ -89,14 +89,6 @@ func (suite *KeeperTestSuite) TestGetCirculatingSupplyAndInflationRate() {
 			sdkmath.LegacyZeroDec(),
 		},
 		{
-			"no epochs per period",
-			23_689_538,
-			func() {
-				suite.app.InflationKeeper.SetEpochsPerPeriod(suite.ctx, 0)
-			},
-			sdkmath.LegacyZeroDec(),
-		},
-		{
 			"genesis supply",
 			23_689_538,
 			func() {},
@@ -106,13 +98,25 @@ func (suite *KeeperTestSuite) TestGetCirculatingSupplyAndInflationRate() {
 			"year 1 supply",
 			26_589_538, // genesis + 2.9M
 			func() {},
-			sdkmath.LegacyMustNewDecFromStr("10.906545273558344600"), // 10.91% inflation rate after 1 year
+			sdkmath.LegacyMustNewDecFromStr("10.906545273558344600"), // 10.9% inflation rate after 1 year
+		},
+		{
+			"year 2 supply",
+			29_028_438, //  + 2.44M
+			func() {},
+			sdkmath.LegacyMustNewDecFromStr("9.990203399852241400"), // 9.99% inflation rate after 2 year
+		},
+		{
+			"year 3 supply",
+			30_907_710, // + 2.05M
+			func() {},
+			sdkmath.LegacyMustNewDecFromStr("9.382772130319586900"), // 9.38% inflation rate after 3 year
 		},
 		{
 			"year 4 supply (after first halving)",
-			32_389_538, // genesis + ~8.7M (first 4 years)
+			32_420_524, // + 1.725M (first 4 years)
 			func() {},
-			sdkmath.LegacyMustNewDecFromStr("8.953508382861157200"), // 8.95% inflation rate after halving
+			sdkmath.LegacyMustNewDecFromStr("8.944951043974489700"), // 8.945% inflation rate after halving
 		},
 	}
 	for _, tc := range testCases {

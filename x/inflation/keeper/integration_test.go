@@ -1,6 +1,7 @@
 package keeper_test
 
 import (
+	"fmt"
 	"time"
 
 	sdkmath "cosmossdk.io/math"
@@ -49,6 +50,12 @@ var _ = Describe("Inflation", Ordered, func() {
 				s.Require().Equal(denomMint, setParams.MintDenom)
 				s.Require().True(setParams.EnableInflation)
 
+				fmt.Printf("1. Set inflation Params \n")
+				fmt.Printf("MintDenom %s\n", setParams.MintDenom)
+				fmt.Printf("ExponentialCalculation param A %d\n", params.ExponentialCalculation.A)
+				fmt.Printf("ExponentialCalculation param R %d\n", params.ExponentialCalculation.R)
+				fmt.Printf("ExponentialCalculation param C %d\n", params.ExponentialCalculation.C)
+
 				// Set epoch identifier
 				s.app.InflationKeeper.SetEpochIdentifier(s.ctx, epochstypes.DayEpochID)
 
@@ -56,6 +63,10 @@ var _ = Describe("Inflation", Ordered, func() {
 				s.app.InflationKeeper.SetEpochsPerPeriod(s.ctx, 30)
 
 				// Set initial epoch mint provision
+
+				fmt.Printf("EpochIdentifier %s\n", epochstypes.DayEpochID)
+				fmt.Printf("EpochsPerPeriod 30\n")
+
 				genesisProvision := sdkmath.LegacyMustNewDecFromStr("96666666666666666666667")
 				s.app.InflationKeeper.SetEpochMintProvision(s.ctx, genesisProvision)
 
@@ -136,11 +147,12 @@ var _ = Describe("Inflation", Ordered, func() {
 				// Note: Truncation occurs when calculating staking rewards
 				expectedStakingDec := sdkmath.LegacyMustNewDecFromStr("9666666666666666666666")
 				s.Require().Equal(expectedStakingDec, feeCollectorDec)
-
+				fmt.Printf("After one epoch expectedStakingDec: feeCollectorDec %s:%s\n", expectedStakingDec, feeCollectorDec)
 				// Verify community pool allocation (remaining balance after staking rewards)
 				// Note: Community pool gets the remaining balance, which includes the truncated unit
 				expectedCommunityDec := sdkmath.LegacyMustNewDecFromStr("87000000000000000000001")
 				s.Require().Equal(expectedCommunityDec, communityPoolBalance)
+				fmt.Printf("After one epoch expectedCommunityDec: communityPoolBalance %s:%s\n", expectedCommunityDec, communityPoolBalance)
 			})
 		})
 
@@ -178,6 +190,7 @@ var _ = Describe("Inflation", Ordered, func() {
 					It("should increase the epoch number ", func() {
 						epochInfo, _ := s.app.EpochsKeeper.GetEpochInfo(s.ctx, epochstypes.DayEpochID)
 						Expect(epochInfo.CurrentEpoch).To(Equal(epochNumber + 1))
+						fmt.Printf("epochInfo.CurrentEpoch %d\n", epochInfo.CurrentEpoch)
 					})
 
 					It("should increase the skipped epochs number", func() {
@@ -223,7 +236,7 @@ var _ = Describe("Inflation", Ordered, func() {
 							epochInfo, _ := s.app.EpochsKeeper.GetEpochInfo(s.ctx, epochstypes.DayEpochID)
 							epochNumber := epochInfo.CurrentEpoch // 6
 
-							epochsPerPeriod := int64(1)
+							epochsPerPeriod := int64(1) //next year (year = 1)
 							s.app.InflationKeeper.SetEpochsPerPeriod(s.ctx, epochsPerPeriod)
 							skipped := s.app.InflationKeeper.GetSkippedEpochs(s.ctx)
 							s.Require().Equal(epochNumber, epochsPerPeriod+int64(skipped))
@@ -256,6 +269,7 @@ var _ = Describe("Inflation", Ordered, func() {
 							)
 
 							Expect(provisionAfter).To(Equal(expectedProvision))
+							fmt.Printf("MintProvision after 1 years  %s", provisionAfter)
 						})
 					})
 				})
