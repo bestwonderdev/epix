@@ -201,7 +201,7 @@ func (suite *IntegrationTestSuite) SetupTest() {
 	epochMintProvision := types.CalculateEpochMintProvision(
 		params,
 		uint64(0), // period 0
-		30,        // epochs per period
+		365,       // epochs per period
 		bondedRatio,
 	)
 	suite.app.InflationKeeper.SetEpochMintProvision(suite.ctx, epochMintProvision)

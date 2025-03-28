@@ -6,8 +6,8 @@ import (
 
 func (suite *KeeperTestSuite) TestInitGenesis() {
 	// Check initial epoch mint provision
-	// 2.9M per year / 30 epochs = ~96,666.67 per epoch
-	expMintProvision := sdkmath.LegacyMustNewDecFromStr("96666666666666666666667")
+	// 2.9M per year / 365 epochs = ~7945.21 per epoch
+	expMintProvision := sdkmath.LegacyMustNewDecFromStr("7945205479452054794521")
 
 	mintProvision, found := suite.app.InflationKeeper.GetEpochMintProvision(suite.ctx)
 	suite.Require().True(found)
